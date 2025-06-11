@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+/* ? Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap');
+@import '~animate.css/animate.min';
+/*? limpiador */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*? Global*/
+
+:root {
+  --primary: #323231;
+  --secondary: #DDD0C8;
+  --gradient: linear-gradient(315deg, #00CC99 8%, rgba(102, 0, 255, 0.73) 69%, rgba(4, 4, 11, 0.72) 100%);
+  --light-bg: #DDD0C8;
+  --text-color: rgb(21, 25, 34);
+  --text-font: "Montserrat", sans-serif;
+  --title-font: "Special Elite", system-ui;
+}
+
+html {
+  font-family: var(--text-font);
+  color: var(--text-color);
+  background-color: var(--secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+p {
+  font-family: var(--text-font);
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px auto;
+  font-size: 18px;
+  border:1px solid var(--primary);
+  font-family: var(--text-font) !important;
+  font-weight: 500;
+  color: var(--secondary);
+  border-radius: 10px !important;
+  background-color: var(--primary);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  color: var(--primary);
+  background-color: var(--secondary);
+  background-image: none;
+  border:1px solid var(--primary);
+}
+
+.bg-dark {
+    background-color: var(--primary);
+}
+
+.bg-pastel {
+  background-color: var(--secondary);
+}
+
+
+/* *Responsive */
+/* Tablets */
+@media  (max-width: 850px) {
+    main {
+      padding: 0 50px;
+    }
+}
+
+/* Moviles */
+@media  (max-width: 640px) {
+  main {
+    padding: 0 10px;
+    height: auto;
+  }
+}

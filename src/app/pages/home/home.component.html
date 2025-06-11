@@ -1,0 +1,88 @@
+<main>
+  <div class="container pt-5">
+    <div class="row py-5">
+      <div class="col-md-6 text-end">
+        <h1 class="home__title">LLega myBooks</h1>
+        <p class="home__text-content">
+          Nuestra web es una herramienta online pensada para ayudarte a
+          <span class="fw-bold">
+            organizar y gestionar tu colección de libros</span
+          >
+          de manera cómoda y eficiente.
+        </p>
+        <p class="home__text-content">
+          Con una interfaz intuitiva y funcionalidades avanzadas, podrás
+          registrar, clasificar y buscar tus libros en cualquier momento y desde
+          cualquier dispositivo.
+        </p>
+
+        <h4 class="home__subtitle">
+          Que no te lo cuenten, <span class="text-uppercase">¡leelo!</span>
+        </h4>
+        <button (click)="scrollToRegister()" type="button" href="#register-banner">
+          Registrate
+        </button>
+      </div>
+      <div class="col-md-6">
+        <div class="blob"></div>
+      </div>
+    </div>
+
+    <div class="row mb-5 py-5 rounded-3 bg-pastel">
+      <div class="col-md-6 d-flex gap-2">
+        <div class="card bg-dark text-light" style="width: 18rem">
+          <div class="card-body text-center rounded-2 shadow">
+            <h5 class="card-title">Plan base</h5>
+            <span class="badge rounded-pill text-bg-light my-2">Gratuito</span>
+            <p class="card-text">
+              Pensado para particulares que quieran organizar su colección
+              doméstica
+            </p>
+          </div>
+        </div>
+
+        <div class="card bg-dark text-light" style="width: 18rem">
+          <div class="card-body text-center rounded-2 shadow">
+            <h5 class="card-title">Librería</h5>
+            <span class="card-subtitle my-3 text-light fs-3"> 9.99 €/mes</span>
+            <p class="card-text">
+              La solución para establecimientos. Controla el inventario y
+              gestiona pedidos a tus proveedores .
+            </p>
+          </div>
+        </div>
+
+        <div class="card bg-dark text-light" style="width: 18rem">
+          <div class="card-body text-center rounded-2 shadow">
+            <h5 class="card-title">Librería</h5>
+            <span class="card-subtitle my-3 text-light fs-3"> 19.99 €/mes</span>
+            <p class="card-text">
+              La herramienta de las pequeñas editoriales. Factura, organiza
+              pedidos y consulta estadísticas.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="home__subtitle">Una solución a medida</h2>
+        <p class="home__text-content w-100">
+          Esta plataforma está diseñada tanto para
+          <span class="fw-bold">particulares</span> que desean llevar el control
+          de su biblioteca personal, como para
+          <span class="fw-bold"
+            >negocios, librerías o pequeñas editoriales</span
+          >
+          que necesitan administrar su inventario de forma profesional. Descubre
+          cómo
+          <span class="fw-bold"
+            >nuestra solución puede adaptarse a tus necesidades</span
+          >
+          y facilitar la gestión de tu colección, sea cual sea su tamaño.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div id="register-banner" class="container pt-5">
+    <app-form-register></app-form-register>
+  </div>
+</main>

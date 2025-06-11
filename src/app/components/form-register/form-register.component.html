@@ -1,0 +1,153 @@
+<!-- Model driven -->
+<div class="form__container">
+  <h2 class="form__title">Regístrate</h2>
+  <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+    <div class="form">
+      <fieldset id="personal-data" class="form__data">
+        <legend class="form__element-title">Datos personales</legend>
+        <div class="form__element">
+          <label for="nombre" class="form__element-label">Nombre:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Nombre completo"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('nombre')?.dirty ||
+                  formRegister.get('nombre')?.touched) &&
+                !formRegister.get('nombre')?.valid
+            }"
+          />
+          <div
+            *ngIf="!formRegister.get('nombre')?.valid"
+            class="invalid-feedback"
+          >
+            El nombre es necesario
+          </div>
+        </div>
+        <div class="form__element">
+          <label for="apellidos" class="form__element-label">Apellidos:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="apellidos"
+            placeholder="Primer y segundo apellidos"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('apellidos')?.dirty ||
+                  formRegister.get('apellidos')?.touched) &&
+                !formRegister.get('apellidos')?.valid
+            }"
+          />
+          <div
+            *ngIf="!formRegister.get('apellidos')?.valid"
+            class="invalid-feedback"
+          >
+            Los apellidos son necesarios
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id="contact-data" class="form__data">
+        <legend class="form__element-title">Datos de contacto</legend>
+        <div class="form__element">
+          <label for="email" class="form__element-label"
+            >Correo electrónico:</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Correo electrónico de registro"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('email')?.dirty ||
+                  formRegister.get('email')?.touched) &&
+                !formRegister.get('email')?.valid
+            }"
+          />
+          <div *ngIf="!formRegister.get('email')?.valid" class="invalid-feedback">
+            <div *ngIf="formRegister.get('email')?.errors?.['required']">
+              El email es obligatorio
+            </div>
+            <div *ngIf="formRegister.get('email')?.errors?.['email']">
+              El email es incorrecto
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id="user-data" class="form__data">
+        <legend class="form__element-title">Contraseña</legend>
+        <div class="form__element">
+          <label for="password" class="form__element-label">Contraseña:</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Escribe tu contraseña"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('password')?.dirty ||
+                  formRegister.get('password')?.touched) &&
+                !formRegister.get('password')?.valid
+            }"
+          />
+          <div
+            *ngIf="!formRegister.get('password')?.valid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="formRegister.get('password')?.errors?.['required']">
+              La contraseña es obligatoria
+            </div>
+            <div
+              *ngIf="formRegister.get('password')?.errors?.['invalidPassword']"
+            >
+              La contraseña debe tener al menos 8 caracteres, incluyendo números,
+              mayúsculas, minúsculas y símbolos especiales
+            </div>
+          </div>
+        </div>
+        <div class="form__element">
+          <label for="password-repeat" class="form__element-label"
+            >Confirma la contraseña:</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password2"
+            placeholder="Repite tu contraseña"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('password2')?.dirty ||
+                  formRegister.get('password2')?.touched) &&
+                !formRegister.get('password2')?.valid
+            }"
+          />
+          <div
+            *ngIf="!formRegister.get('password2')?.valid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="formRegister.get('password2')?.errors?.['required']">
+              La contraseña es obligatoria
+            </div>
+            <div
+              *ngIf="formRegister.get('password2')?.errors?.['unMatchPassword']"
+            >
+              Las contraseñas no coinciden
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="--center">
+      <button
+        class="form__button"
+        type="submit"
+        [disabled]="formRegister.invalid"
+        [ngStyle]="{ opacity: !formRegister.invalid ? 1 : 0.5 }"
+      >
+        Registrarse
+      </button>
+    </div>
+  </form>
+</div>
