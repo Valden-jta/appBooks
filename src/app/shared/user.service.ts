@@ -9,25 +9,25 @@ import { ApiAnswer } from '../models/api-answer';
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost:3000'; 
-  public user: User;
+  private url = 'http://localhost:3000';
+  public logged: boolean = false;
+  public serviceUser: User | null;
 
   constructor(private http: HttpClient) {
-    this.user = null;
+    this.serviceUser = null;
   }
   // LOGIN
-  getUser(): Observable<ApiAnswer> {
-    return this.http.get<ApiAnswer>(`${this.url}/login`);
+ login(user: User): Observable<ApiAnswer> {
+    return this.http.post<ApiAnswer>(`${this.url}/login`, user);
   }
   // REGISTER
-  postUser(newUser: User): Observable<ApiAnswer>{
+  register(newUser: User): Observable<ApiAnswer>{
     return this.http.post<ApiAnswer>(`${this.url}/register`, newUser);
   }
   // PROFILE
-  putUser(editedUser: User): Observable<ApiAnswer> {
+  edit(editedUser: User): Observable<ApiAnswer> {
     return this.http.put<ApiAnswer>(`${this.url}/usuarios`, editedUser);
   }
-
 
   ngOninit(): void {}
 }

@@ -6,6 +6,6 @@ export class ApiAnswer {
     public error: boolean,
     public code: number,
     public message: string,
-    public data: User[] | Book[]
+    public data: User | Book | Book[]
   ) {}
 }

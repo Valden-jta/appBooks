@@ -21,7 +21,7 @@
             </div>
         </fieldset>
         <div class="form-group --center">
-                <button class="form__button" [disabled]="loginForm.invalid" [ngStyle]="{opacity: !(loginForm.invalid) ? 1 : 0.5}">Submit</button>
+                <button class="form__button" [disabled]="loginForm.invalid" [ngStyle]="{opacity: !(loginForm.invalid) ? 1 : 0.5}" (click)="iniciarSesion(user.email, user.password)">Submit</button>
         </div>
     
     </form>
