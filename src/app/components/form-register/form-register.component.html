@@ -47,6 +47,27 @@
             Los apellidos son necesarios
           </div>
         </div>
+         <div class="form__element">
+          <label for="nombre" class="form__element-label">Imagen de perfil:</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="photo"
+            placeholder="Imagen de perfil"
+            [ngClass]="{
+              'is-invalid':
+                (formRegister.get('photo')?.dirty ||
+                  formRegister.get('photo')?.touched) &&
+                !formRegister.get('photo')?.valid
+            }"
+          />
+          <div
+            *ngIf="!formRegister.get('photo')?.valid"
+            class="invalid-feedback"
+          >
+            El photo es necesario
+          </div>
+        </div>
       </fieldset>
       <fieldset id="contact-data" class="form__data">
         <legend class="form__element-title">Datos de contacto</legend>
