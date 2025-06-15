@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,6 +12,7 @@ import { User } from '../../models/user';
   styleUrls: ['./form-profile.component.css'],
 })
 export class FormProfileComponent implements OnInit {
+  @Output() userChanges = new EventEmitter<User>();
   public user: User;
   public editedUser: User;
   public passwordPattern;
@@ -40,19 +41,24 @@ export class FormProfileComponent implements OnInit {
     console.log(this.user);
   }
 
- private editUser(user, editedUser): any {
-  // Rellenar los campos vacíos de editedUser con la información existente de user
-  Object.entries(editedUser).forEach(([attr, value]) => {
-    if (value === '' || undefined) {
-      editedUser[attr] = user[attr];
-    }
-  });
-  // Construir y devolver el objeto final
-  return {
-    ...editedUser,
-    confirmPassword: this.confirmPassword,
-  };
-}
+  private editUser(user, editedUser): any {
+    // Rellenar los campos vacíos de editedUser con la información existente de user
+    Object.entries(editedUser).forEach(([attr, value]) => {
+      if (value === '' || undefined) {
+        editedUser[attr] = user[attr];
+      }
+    });
+    // Construir y devolver el objeto final
+    return {
+      ...editedUser,
+      confirmPassword: this.confirmPassword,
+    };
+  }
+  public changes(user):void {
+    this.userChanges.emit(user);
+    console.log("mandando datos a profile");
+    console.log(user);
+  }
 
   onSubmit(form: NgForm) {
     this.editedUser = new User(
@@ -67,8 +73,15 @@ export class FormProfileComponent implements OnInit {
     console.log(editedObject);
     this.apiService.edit(editedObject).subscribe(
       (res: ApiAnswer) => {
-        console.log('datos enviado');
-        console.log(res.data);
+        if  (res.data && !Array.isArray(res.data) && 'email' in res.data) {
+          this.confirmPassword = '';
+          this.apiService.serviceUser = res.data;
+          this.changes(this.apiService.serviceUser);
+        } else {
+          this.confirmPassword = '';
+          this.apiService.serviceUser = { ...this.editedUser };
+          this.changes(this.apiService.serviceUser);
+        }
         this.toastr.success(res?.message || 'Usuario actualizado', '', {
           timeOut: 2000,
           positionClass: 'toast-bottom-right',

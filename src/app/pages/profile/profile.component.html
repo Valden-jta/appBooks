@@ -8,13 +8,13 @@
           alt="Imagen de perfil"
         />
       </div>
-      <p id="user" class="profile__user">{{ user.nombreCompleto() }}</p>
+      <p id="user" class="profile__user">{{nombreCompleto}}</p>
       <p>{{ user.email }}</p>
     
     </div>
     <div class="profile__edit">
 
-    <app-form-profile></app-form-profile> 
+    <app-form-profile (userChanges) = 'showChanges($event)'></app-form-profile> 
 
       
     </div>
