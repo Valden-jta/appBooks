@@ -1,0 +1,38 @@
+.form-edit {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-edit__title {
+  width: 100%;
+  align-self: flex-start;
+  font-size: 20px;
+  font-family: var(--font-title);
+  margin: 10px 5px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.form-edit__input {
+  margin: 5px auto;
+  padding: 7px;
+  background-color: var(--light-bg);
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+}
+
+.form-edit__button {
+  margin-top: 15px;
+  margin-left: 60%;
+  align-self: flex-end;
+  color: white;
+}
+
+.form-edit__button:hover {
+  color: var(--primary);
+  border: 2px solid white;
+}

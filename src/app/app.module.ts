@@ -18,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FormProfileComponent } from './components/form-profile/form-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HeaderComponent } from './components/header/header.component';
     ProfileComponent,
     LoginComponent,
     FormLoginComponent,
+    FormProfileComponent,
   ],
   imports: [
     BrowserModule,

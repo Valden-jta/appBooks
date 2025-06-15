@@ -59,37 +59,30 @@ export class FormRegisterComponent implements OnInit {
     return null;
   }
 
-  register(user: User) {
-    console.log('enviando formulario');
+  public onSubmit() {
     if (this.formRegister.valid) {
       this.newUser.name = this.formRegister.value.nombre;
       this.newUser.last_name = this.formRegister.value.apellidos;
       this.newUser.email = this.formRegister.value.email;
       this.newUser.photo = this.formRegister.value.photo;
       this.newUser.password = this.formRegister.value.password;
-      console.log(this.newUser);
-    }
 
-    this.apiService.register(user).subscribe(
-      (res: ApiAnswer) => {
-        console.log("formulario enviado")
-        console.log(res.data);
-        this.toastr.success(res?.message || 'Usuario registrado', '', {
-          timeOut: 2000,
-          positionClass: 'toast-bottom-right',
-        });
-      },
-      (error) => {
-        this.toastr.error(error.error?.message || 'Error de conexión', '', {
-          timeOut: 2000,
-          positionClass: 'toast-bottom-right',
-        });
-      }
-    );
+      this.apiService.register(this.newUser).subscribe(
+        (res: ApiAnswer) => {
+          console.log('formulario enviado');
+          console.log(res.data);
+          this.toastr.success(res?.message || 'Usuario registrado', '', {
+            timeOut: 2000,
+            positionClass: 'toast-bottom-right',
+          });
+        },
+        (error) => {
+          this.toastr.error(error.error?.message || 'Error de conexión', '', {
+            timeOut: 2000,
+            positionClass: 'toast-bottom-right',
+          });
+        }
+      );
+    }
   }
-
-  public onSubmit() {
-      this.register(this.newUser);
-    }
-  
 }

@@ -25,7 +25,17 @@ export class FormLoginComponent {
     this.apiService.login(this.user).subscribe(
       (res: ApiAnswer) => {
         this.apiService.logged = true;
-        this.apiService.serviceUser = res.data as User;
+
+        if (res.data && !Array.isArray(res.data) && 'email' in res.data) {
+          this.apiService.serviceUser = new User(
+            res.data.id_user,
+            res.data.name,
+            res.data.last_name,
+            res.data.email,
+            res.data.photo,
+            '' 
+          );
+        }
         // TODO: Cambiar navegacion a pagina libros ['/books']
         this.router.navigate(['/profile']);
       },

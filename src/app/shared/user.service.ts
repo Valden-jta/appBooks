@@ -6,7 +6,7 @@ import { User } from '../models/user';
 import { ApiAnswer } from '../models/api-answer';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private url = 'http://localhost:3000';
@@ -14,21 +14,20 @@ export class UserService {
   public serviceUser: User | null;
 
   constructor(private http: HttpClient) {
-    this.serviceUser = null;
+    // this.serviceUser = null
   }
   // LOGIN
- login(user: User): Observable<ApiAnswer> {
+  login(user: User): Observable<ApiAnswer> {
     return this.http.post<ApiAnswer>(`${this.url}/login`, user);
   }
   // REGISTER
-  register(newUser: User): Observable<ApiAnswer>{
+  register(newUser: User): Observable<ApiAnswer> {
     return this.http.post<ApiAnswer>(`${this.url}/register`, newUser);
   }
   // PROFILE
-  edit(editedUser: User): Observable<ApiAnswer> {
-    return this.http.put<ApiAnswer>(`${this.url}/usuarios`, editedUser);
+  edit(editedObject: any): Observable<ApiAnswer> {
+    return this.http.put<ApiAnswer>(`${this.url}/usuarios`, editedObject);
   }
 
   ngOninit(): void {}
 }
-
