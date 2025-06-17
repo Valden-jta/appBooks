@@ -6,7 +6,6 @@ export class Book {
     public author: string;
     public price: number;
     public photo: string;
-    public selected: number;
 
     constructor(id_book: number = 0, id_user: number = 0, title: string, type: string, author: string, price: number, photo: string) {
         this.id_book = id_book;
