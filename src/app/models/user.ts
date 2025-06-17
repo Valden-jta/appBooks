@@ -16,8 +16,4 @@ export class User {
         this.photo = photo;
         this.password = password;
     }
-
-    public nombreCompleto():string {
-        return this.name + " " + this.last_name;
-      }
 }
