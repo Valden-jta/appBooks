@@ -1,18 +1,41 @@
 <header>
-    <nav class="myNav">
-        <div class="myNav-brand">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
             <a routerLink="home">
-                <img class="myNav-brand__img" src="../../../assets/img/myBooks_logo.png" alt="Logo"/>
+                <img class="myNav-brand__img" src="../../../assets/img/myBooks_logo.png" alt="Logo" />
             </a>
-        </div>
-        <div class="myNav-tabs">
-            <a class="myNav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
-            <a class="myNav-link" routerLink="/add" routerLinkActive="active">Añadir libro</a>
-            <a class="myNav-link" routerLink="/update" routerLinkActive="active">Actualizar libro</a>
-            <a class="myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
-            <a class="myNav-link" routerLink="/register" routerLinkActive="active">Registro</a>
-            <a class="myNav-link" routerLink="/profile" routerLinkActive="active">Perfil</a>
-            <a class="myNav-link myNav-link__icon --login" routerLink="/login" routerLinkActive="active"> Iniciar sesión/registrarse <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-evenly align-items-center px-5">
+                    <li class="nav-item px-1">
+                        <a class="nav-link myNav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="nav-link myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link myNav-link" routerLink="/add" routerLinkActive="active">Añadir libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link myNav-link" routerLink="/update" routerLinkActive="active">Actualizar
+                            libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link myNav-link" routerLink="/profile" routerLinkActive="active">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cta --bg-yellow" routerLink="/register" routerLinkActive="active">Regístrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cta" routerLink="/login" routerLinkActive="active">Iniciar sesión
+                            <i class="fa-solid fa-arrow-right-to-bracket cta__icon"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>

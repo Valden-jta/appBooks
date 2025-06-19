@@ -1,58 +1,61 @@
+header {
+  margin: 0 12em;
+}
 .myNav {
-    background-color: var(--secondary);
-    padding: 10px 50px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 50px;
-    position: sticky;
-    offset: 0px;
+  background-color: var(--white);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2em;
+  position: sticky;
+  offset: 0em;
 }
 
-.myNav-link {
-    font-family: var(--text-font);
-    font-size: 18px;
-    font-weight: 400;
-    text-decoration: none;
-    color: var(--primary);
-    padding: 5px 10px;
-    margin: 0 10px;
-    transition: all 0.3s ease;
-}
+a.myNav-link {
+   position: relative;
+   display: inline-block;
+   overflow: hidden;
+   margin: 0 1rem;
+   font-family: var(--text-font);
+   font-weight: 500;
+ }
+ 
 
-.myNav-link:hover {
-    background-color: var(--primary);
-    color: var(--secondary);
-    border-radius: 35px;
-}
+ a.myNav-link::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   height: 4px;
+   width: 100%;
+   background-color:var(--yellow);
+   background-size: 200% auto;
+   transition: all .3s;
+   transform: translateX(-100%);
+ }
+ 
+ a.myNav-link:hover::after, a.myNav-link.active::after {
+   transform: translateX(0%);
+ }
+ 
 
-.myNav-link.active {
-    font-weight: bold;
-    color: var(--primary);
-}
 
 .myNav-brand {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 .myNav-brand__img {
-    width: 200%;
-    height: 50px;
-    object-fit: cover;
+  width: 40%;
+  height: 40%;
+  min-width: 40%;
+  min-height: 40%;
+  object-fit: cover;
+  background-color: var(--white);
 }
 
 .myNav-link__icon {
-    position: relative;
+  position: relative;
 }
-.myNav-link__icon > i {
- padding: 0 5px;
-}
-
-.myNav-link__icon:hover {
-  color:var(--secondary);
-}
-
-
