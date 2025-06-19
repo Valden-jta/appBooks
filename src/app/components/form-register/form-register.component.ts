@@ -23,7 +23,7 @@ export class FormRegisterComponent implements OnInit {
 
   constructor(
     private formRegisterBuilder: FormBuilder,
-    private apiService: UserService,
+    private userService: UserService,
     private toastr: ToastrService
   ) {
     this.newUser = new User(0, '', '', '', '', '');
@@ -67,7 +67,7 @@ export class FormRegisterComponent implements OnInit {
       this.newUser.photo = this.formRegister.value.photo;
       this.newUser.password = this.formRegister.value.password;
 
-      this.apiService.register(this.newUser).subscribe(
+      this.userService.register(this.newUser).subscribe(
         (res: ApiAnswer) => {
           console.log('formulario enviado');
           console.log(res.data);

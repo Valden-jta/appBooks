@@ -24,8 +24,8 @@ export class FormProfileComponent implements OnInit {
   public newPasswordCheck: string;
   public confirmPassword: string;
 
-  constructor(private apiService: UserService, private toastr: ToastrService) {
-    this.user = this.apiService.serviceUser;
+  constructor(private userService: UserService, private toastr: ToastrService) {
+    this.user = this.userService.serviceUser;
     this.passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
     this.editedUser = new User(this.user.id_user, '', '', '', '', '');
     this.newName = '';
@@ -71,16 +71,16 @@ export class FormProfileComponent implements OnInit {
     );
     let editedObject = this.editUser(this.user, this.editedUser);
     console.log(editedObject);
-    this.apiService.edit(editedObject).subscribe(
+    this.userService.edit(editedObject).subscribe(
       (res: ApiAnswer) => {
         if  (res.data && !Array.isArray(res.data) && 'email' in res.data) {
           this.confirmPassword = '';
-          this.apiService.serviceUser = res.data;
-          this.changes(this.apiService.serviceUser);
+          this.userService.serviceUser = res.data;
+          this.changes(this.userService.serviceUser);
         } else {
           this.confirmPassword = '';
-          this.apiService.serviceUser = { ...this.editedUser };
-          this.changes(this.apiService.serviceUser);
+          this.userService.serviceUser = { ...this.editedUser };
+          this.changes(this.userService.serviceUser);
         }
         this.toastr.success(res?.message || 'Usuario actualizado', '', {
           timeOut: 2000,

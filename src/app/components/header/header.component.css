@@ -39,8 +39,6 @@ a.myNav-link {
    transform: translateX(0%);
  }
  
-
-
 .myNav-brand {
   display: flex;
   flex-direction: column;

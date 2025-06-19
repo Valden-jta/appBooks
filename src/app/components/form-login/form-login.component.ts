@@ -6,6 +6,7 @@ import { UserService } from 'src/app/shared/user.service';
 import { ApiAnswer } from '../../models/api-answer';
 import { User } from '../../models/user';
 
+
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -13,8 +14,10 @@ import { User } from '../../models/user';
 })
 export class FormLoginComponent {
   public user: User;
+  public logged$ = this.userService.logged$;
+ 
   constructor(
-    private apiService: UserService,
+    private userService: UserService,
     private toastr: ToastrService,
     private router: Router
   ) {
@@ -22,12 +25,13 @@ export class FormLoginComponent {
   }
 
   iniciarSesion(email: String, password: String) {
-    this.apiService.login(this.user).subscribe(
+    this.userService.login(this.user).subscribe(
       (res: ApiAnswer) => {
-        this.apiService.logged = true;
+        this.userService.onLogin(true);
+        console.log(this.logged$);
 
         if (res.data && !Array.isArray(res.data) && 'email' in res.data) {
-          this.apiService.serviceUser = new User(
+          this.userService.serviceUser = new User(
             res.data.id_user,
             res.data.name,
             res.data.last_name,
@@ -36,7 +40,6 @@ export class FormLoginComponent {
             '' 
           );
         }
-        // TODO: Cambiar navegacion a pagina libros ['/books']
         this.router.navigate(['/profile']);
       },
       (error) => {

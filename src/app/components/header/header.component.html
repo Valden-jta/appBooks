@@ -11,29 +11,48 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-evenly align-items-center px-5">
-                    <li class="nav-item px-1">
-                        <a class="nav-link myNav-link" routerLink="/home" routerLinkActive="active">Inicio</a>
-                    </li>
-                    <li class="nav-item px-1">
-                        <a class="nav-link myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link myNav-link" routerLink="/add" routerLinkActive="active">Añadir libro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link myNav-link" routerLink="/update" routerLinkActive="active">Actualizar
-                            libro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link myNav-link" routerLink="/profile" routerLinkActive="active">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="cta --bg-yellow" routerLink="/register" routerLinkActive="active">Regístrate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="cta" routerLink="/login" routerLinkActive="active">Iniciar sesión
-                            <i class="fa-solid fa-arrow-right-to-bracket cta__icon"></i></a>
-                    </li>
+                    <ng-container *ngIf="logged$ | async as logged; else unlogged">
+                        <li class="nav-item px-1">
+                            <a class="nav-link myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link myNav-link" routerLink="/add" routerLinkActive="active">Añadir libro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link myNav-link" routerLink="/update" routerLinkActive="active">Actualizar
+                                libro</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" routerLink="/profile"
+                                        routerLinkActive="active">Administrar Perfil</a></li>
+                                <li>
+                                </li>
+                                <li><a class="nav-link" routerLink="/login" (click)="logOut(false)">
+                                        Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket cta__icon"></i>
+                                    </a></li>
+                            </ul>
+                    </ng-container>
+                    <ng-template #unlogged>
+                        <li class="nav-item">
+                            <a class="cta --bg-yellow" routerLink="/register" routerLinkActive="active">Regístrate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="cta" routerLink="/login" routerLinkActive="active">
+                                Iniciar sesión <i class="fa-solid fa-arrow-right-to-bracket cta__icon"></i>
+                            </a>
+                        </li>
+                    </ng-template>
+
+
+
+
+
+
                 </ul>
             </div>
         </div>
