@@ -2,48 +2,54 @@
     border: 1px solid var(--primary) !important;
 }
 
-.home__element,
-.home__title,
-.home__slogan {
-  color: var(--primary);
-}
+
 
 .home__title {
-    font-size: 95px;
-    line-height: 1;
+    font-size: 4em;
+    line-height: 1.5;
     font-weight: 800;
 }
 
 
 .home__subtitle {
     margin:15px auto;
-    font-size: 36px;
+    font-size: 2em;
     font-weight: 800;
 }
 
-.blob {
-  background-image: url("../../../assets/img/home-bg.jpg");
-  width: 380px;
-  height: 380px;
-  background-color: white;
-  background-size: cover;
-  -webkit-background-position: center;
-  background-position: center center;
-  margin: 20px;
-  box-shadow: 0 5px 5px 5px rgba(13, 110, 253, 0.2);
-  animation: animate 5s ease-in-out infinite;
-  transition: all 1s ease-in-out;
+.--highlight {
+  font-size: 2.5rem;
+  font-weight: 800;
+  position:relative;
+  z-index: 99;
 }
 
-@keyframes animate {
-  0%,
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
+.--highlight::after {
+  z-index:9;
+  content: '';
+  position:absolute;
+  left: 0; right: 0; bottom: -.250em;
+  height: .25em;
+  background: var(--yellow);
 }
+
+
+
+.check-list > svg {
+  background-color: var(--yellow);
+  margin: .375rem;
+  padding: .125em;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50px;
+}
+.check-list > span {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-left: 0.375em;
+}
+
+
 
 
 

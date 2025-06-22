@@ -27,7 +27,7 @@ a.myNav-link {
    position: absolute;
    bottom: 0;
    left: 0;
-   height: 4px;
+   height: .25em;
    width: 100%;
    background-color:var(--yellow);
    background-size: 200% auto;

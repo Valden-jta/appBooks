@@ -1,3 +1,5 @@
 .register {
-    background-image: url('../../../assets/img/register-bg.jpg');
+    background-image: url('../../../assets/img/illustration1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
