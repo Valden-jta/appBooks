@@ -6,7 +6,6 @@ import { UserService } from 'src/app/shared/user.service';
 import { ApiAnswer } from '../../models/api-answer';
 import { User } from '../../models/user';
 
-
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -14,14 +13,16 @@ import { User } from '../../models/user';
 })
 export class FormLoginComponent {
   public user: User;
+  public showPassword: Boolean;
   public logged$ = this.userService.logged$;
- 
+
   constructor(
     private userService: UserService,
     private toastr: ToastrService,
     private router: Router
   ) {
     this.user = new User(0, '', '', '', '', '');
+    this.showPassword = false;
   }
 
   iniciarSesion(email: String, password: String) {
@@ -37,7 +38,7 @@ export class FormLoginComponent {
             res.data.last_name,
             res.data.email,
             res.data.photo,
-            '' 
+            ''
           );
         }
         this.router.navigate(['/profile']);
@@ -49,6 +50,13 @@ export class FormLoginComponent {
         });
       }
     );
+  }
+
+  passwortdToast() {
+    this.toastr.success('Se ha enviado un correo de recuperacion', '', {
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right',
+    });
   }
 
   ngOnInit(): void {}

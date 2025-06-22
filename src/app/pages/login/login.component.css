@@ -1,3 +1,12 @@
 .login {
-    background-color: var(--light-bg);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    height: 75vh;
+}
+
+.login__form {
+    min-width: 20vw;
+    max-width: 20vw;
 }

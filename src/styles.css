@@ -53,6 +53,8 @@ p {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: var(--white);
+  padding: 2em
 }
 
 .form {
@@ -106,6 +108,9 @@ p {
   font-weight: 300;
   font-size: 0.9rem;
 }
+a.form__subtitle {
+  cursor: pointer;
+}
 
 .form__element-title {
   font-family: var(--title-font);
@@ -118,9 +123,10 @@ p {
 .form__element {
   max-width: 20vw;
   width: 100%;
+  position: relative;
 }
 
-.form__element > input {
+.form__element > input  {
   width: 100%;
   box-sizing: border-box;
   color: var(--black);
@@ -128,28 +134,38 @@ p {
   font-family: var(--text-font);
   font-weight: 500;
   line-height: 1.5;
-  padding-left: 2em !important;
+  padding-left:2em !important;
   border: 1px solid var(--black);
   border-radius: 2em;
 }
 
+.form__element > button {
+  position: absolute;
+  width: 2.5em;
+  border: none;
+  background: none;
+  position: absolute;
+  right: 3em;
+  top: 1.2em; 
+  transform: translateY(-25%);
+  z-index: 2;
+  padding: 0;
+}
+
 .form__element > label {
-  width: 100%;
+  width: 60%;
   box-sizing: border-box;
   font-family: var(--text-font);
   color: var(--text-color);
   font-size: 16px;
   font-weight: 400;
-  background: transparent !important;
+  background: inherit !important;
   margin-left: 2em !important;
 }
 
-.form__button-wrapper {
-  margin: 2%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
+
 
 .--center {
   display: flex;

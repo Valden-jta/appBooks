@@ -20,6 +20,8 @@ import { User } from '../../models/user';
 export class FormRegisterComponent implements OnInit {
   public formRegister!: FormGroup;
   public newUser: User;
+  public showPassword: Boolean;
+  public showConfirmPassword: Boolean;
 
   constructor(
     private formRegisterBuilder: FormBuilder,
@@ -28,6 +30,8 @@ export class FormRegisterComponent implements OnInit {
   ) {
     this.newUser = new User(0, '', '', '', '', '');
     this.buildForm();
+    this.showPassword = false;
+    this.showConfirmPassword = false;
   }
 
   ngOnInit(): void {}
