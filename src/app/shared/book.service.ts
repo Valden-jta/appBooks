@@ -8,7 +8,7 @@ import { ApiAnswer } from '../models/api-answer';
 @Injectable({
   providedIn: 'root'
 })
-export class BooksService implements OnInit {
+export class BookService implements OnInit {
 
   public books: Book[] | null;
   private url = "http://localhost:3000/books"

@@ -41,7 +41,7 @@ export class FormLoginComponent {
             ''
           );
         }
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/books']);
       },
       (error) => {
         this.toastr.error(error.error?.message || 'Error de conexión', '', {

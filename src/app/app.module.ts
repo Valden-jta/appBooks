@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { BooksComponent } from './pages/books/books.component';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
@@ -32,6 +33,7 @@ import { FormProfileComponent } from './components/form-profile/form-profile.com
     LoginComponent,
     FormLoginComponent,
     FormProfileComponent,
+    BooksComponent,
   ],
   imports: [
     BrowserModule,
