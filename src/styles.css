@@ -213,7 +213,7 @@ a.form__subtitle {
   text-align: center;
   box-sizing: border-box;
   color: var(--black);
-  background: transparent;
+  background: var(--white);
   font-family: var(--text-font);
   font-weight: 500;
   line-height: 1.5;

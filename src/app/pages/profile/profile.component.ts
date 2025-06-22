@@ -12,8 +12,8 @@ export class ProfileComponent implements OnInit {
  public user: User;
  public nombreCompleto: String;
 
-  constructor(private apiService: UserService) {
-    this.user = this.apiService.serviceUser;
+  constructor(private userService: UserService) {
+    this.user = this.userService.serviceUser;
     this.nombreCompleto = this.user.name + ' ' + this.user.last_name;
   }
 showChanges(updatedUser: User) {

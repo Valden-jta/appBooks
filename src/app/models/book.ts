@@ -16,8 +16,4 @@ export class Book {
         this.price = price;
         this.photo = photo;
     }
-
-    showPrice(i:number):number {
-        return this.price[i];
-    }
 }

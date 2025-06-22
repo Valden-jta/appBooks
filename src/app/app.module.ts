@@ -20,6 +20,9 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormProfileComponent } from './components/form-profile/form-profile.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
+import { BookTableComponent } from './components/book-table/book-table.component';
+import { IdBookFormatPipe } from './pipes/id-book-format.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { FormProfileComponent } from './components/form-profile/form-profile.com
     FormLoginComponent,
     FormProfileComponent,
     BooksComponent,
+    BookCardComponent,
+    BookTableComponent,
+    IdBookFormatPipe,
   ],
   imports: [
     BrowserModule,

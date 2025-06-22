@@ -12,7 +12,7 @@ export class UserService {
   private url = 'http://localhost:3000';
   // public logged: boolean = false;
   public serviceUser: User | null;
-  public  logged$ = new BehaviorSubject<boolean>(true)
+  public  logged$ = new BehaviorSubject<boolean>(false)
 
   constructor(private http: HttpClient) {
     this.serviceUser = null;

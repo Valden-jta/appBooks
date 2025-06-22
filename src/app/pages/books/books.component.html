@@ -1,16 +1,35 @@
 <main>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-1">
-            <aside></aside>
-		</div>
-		<div class="col-md-7">
-            <section>
-                
-            </section>
-		</div>
-		<div class="col-md-4">
-		</div>
-	</div>
-</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <aside>
+          aside
+          <!-- Foto de usuario -->
+
+          <!--
+				Menu lateral
+				Link Profile
+				link add-book(abre addBook-component en la tercera columan) -->
+        </aside>
+      </div>
+      <div class="col-md-6">
+        <section>
+          <app-book-card
+            [bookListPadre]="bookList"
+            [userPadre]="user"
+          ></app-book-card>
+          <!-- ng-container: *ngiF = "bookList.length; else addBook-banner"
+				1. Banner 
+				2. add-book(abre addBook-component en la tercera columan)
+					ng-template:
+                	A. filtro + dropdown seleccion de vista (cards/tabla)
+					B.ng-container: *ngIf= "dropdown == cards; else table" 
+				 		app-card (book data + updateBook + deleteBook)
+				 		ng-template: app-tabla (book data + updateBook + deleteBook)
+				 -->
+        </section>
+      </div>
+      <div class="col-md-4">aside 2</div>
+    </div>
+  </div>
 </main>
