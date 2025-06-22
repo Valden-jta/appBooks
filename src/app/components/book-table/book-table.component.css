@@ -1,8 +1,5 @@
-.grid {
-    display: grid;
-    grid-template-columns: 
-        repeat(
-            auto-fit,
-            minmax(3.125em, 1fr)
-        );
+.icons > i {
+    padding: 0 1em;
+    cursor: pointer;
 }
+

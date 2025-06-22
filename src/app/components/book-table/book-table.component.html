@@ -1,1 +1,24 @@
-<p>book-table works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Título</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Cubierta</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let book of bookListPadre; let isEven = even">
+      <tr [ngClass]="isEven ? 'table-secondary' : 'table-light'">
+        <th scope="row">{{ book.id_book | idBookFormat}}</th>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.type }}</td>
+        <td>{{ book.price }} €</td>
+        <td class="icons"><i class="fa-solid fa-pen-to-square" (clic)="updateBook()"></i>  <i class="fa-solid fa-trash" (click)="deleteBook()"></i> </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

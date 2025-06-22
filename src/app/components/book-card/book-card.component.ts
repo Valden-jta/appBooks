@@ -21,7 +21,7 @@ export class BookCardComponent {
   @Input() addedBook!: Book;
   @Output() deleteBook = new EventEmitter<Book>();
 
-  constructor(private bookService: BookService, ) {
+  constructor(private bookService: BookService ) {
     
   }
 
