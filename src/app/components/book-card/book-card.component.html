@@ -1,35 +1,18 @@
-<ng-container *ngFor="let book of bookListPadre">
-    <!-- <div [id]="'card_' + book.id_book" class="myCard">
-      <img class="myCard__img" [src]="book.photo" alt="" />
-      <div class="myCard__data">
-        <h3 class="myCard__data-title">{{ book.title }}</h3>
-        <p class="myCard__data-content">{{ book.author }}</p>
-        <p class="myCard__data-content">{{ book.type}}</p>
-        <div class="myCard__data-details">
-          <p class="myCard__data--small">{{ book.id_book | idBookFormat}}</p>
-          <p class="myCard__data--price">{{ book.price }} €</p>
-        </div>
-        <div class="button__container">
-          <button class="cta --bg-yellow" type="button">Editar <i class="fa-solid fa-pen-to-square cta__icon"></i></button>
-          <button class="cta" type="button" (click)="eliminar(book)">Eliminar <i class="fa-solid fa-x cta__icon"></i></button>
-        </div>
-      </div>
-    </div> -->
+<div class="myCard__container">
+    <ng-container *ngFor="let book of bookListPadre">
+    <div [id]="'card_' + book.id_book" class="myCard" [style.--photo]="'url(' + book.photo + ')'">
 
-<div [id]="'card_' + book.id_book" class="col-md-3 myCard">
-    <div class="row">
-        <img [src]="book.photo" alt="" />
-    </div>
-    <div class="row" >
-        <div class="myCard__data">
-            <h3 class="--title ">{{ book.title }}</h3>
-            <p class=" --author">{{ book.author }}</p>
-            <p><span class= "--type">{{book.type}}</span><span class="--separator"></span> <span class="--price ">{{ book.price }} €</span></p>
-            <div class="button__container">
-                  <button class="" type="button">Editar <i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="" type="button" (click)="eliminar(book)">Eliminar <i class="fa-solid fa-x"></i></button>
+        <div class="row" >
+            <div class="myCard__data">
+                <h3 class="--title ">{{ book.title }}</h3>
+                <p class=" --author">{{ book.author }}</p>
+                <p><span class= "--type">{{book.type}}</span><span class="--separator"></span> <span class="--price ">{{ book.price }} €</span></p>
+                <div class="button__container">
+                      <button class="" type="button">Editar <i class="fa-solid fa-pen-to-square"></i></button>
+                      <button class="" type="button" (click)="eliminar(book)">Eliminar <i class="fa-solid fa-x"></i></button>
+                </div>
             </div>
         </div>
     </div>
+      </ng-container>
 </div>
-  </ng-container>

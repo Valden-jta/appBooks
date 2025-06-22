@@ -1,24 +1,60 @@
-<main>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2">
-        <aside>
-          aside
-          <!-- Foto de usuario -->
-
-          <!--
-				Menu lateral
-				Link Profile
-				link add-book(abre addBook-component en la tercera columan) -->
-        </aside>
+<main class="container-fluid row m-0 px-0">
+  <div class="col-md-2 submenu p-3">
+    <aside class="d-flex flex-column justify-content-center align-items-center">
+      <div class="aside__img-container" [style.--photo]="'url(' + user.photo + ')'"></div>
+      <div class="d-flex flex-nowrap justify-content-center align-items-center my-3">
+        <div class="col-4 separator mx-3"></div>
+        <i class="fa-solid fa-book fa-2xl"></i>
+        <div class="col-4 separator mx-3"></div>
       </div>
-      <div class="col-md-6">
-        <section>
-          <app-book-card
-            [bookListPadre]="bookList"
-            [userPadre]="user"
-          ></app-book-card>
-          <!-- ng-container: *ngiF = "bookList.length; else addBook-banner"
+      <ul class="navbar-nav d-flex justify-content-evenly align-items-start px-5">
+        <li class="nav-item d-flex justify-content-evenly align-items-center">
+          <i class="fa-solid fa-user px-3"></i><a class="nav-link submenu__link" routerLink="/profile"
+            routerLinkActive="active">Perfil</a>
+        </li>
+        <li class="nav-item d-flex justify-content-evenly align-items-center">
+          <i class="fa-solid fa-plus px-3"></i>
+          <a class="nav-link submenu__link" routerLink="/add" routerLinkActive="active">Añadir libro</a>
+        </li>
+        <li class="nav-item d-flex justify-content-evenly align-items-center coming-feature">
+          <i class="fa-solid fa-plus px-3"></i>
+          <a class="nav-link submenu__link" routerLink="#" routerLinkActive="active">Crear colección</a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="col-md-8">
+    <section class="dashboard" >
+      <ng-container *ngIf = "bookList.length; else noBooks">
+        <div class="filters d-flex flex-row">
+          <div class="switch__wrapper col-md-4 d-flex flex-row justify-content-start py-2">
+            <span>Formato de vista:</span>
+              <label class="switch">
+                <input class="toggle" type="checkbox" [(ngModel)]="toggleView"/>
+                <span class="slider"></span>
+                <span class="card-side"></span>
+              </label>
+          </div>
+          <div class="col-md-8">
+            Filtrar
+          </div>
+        </div>
+        <div>
+          <ng-container *ngIf="!toggleView; else bookTable">
+            <app-book-card [bookListPadre]="bookList" [userPadre]="user"></app-book-card>
+          </ng-container>
+          <ng-template #bookTable>
+            <app-book-table [bookListPadre]="bookList" [userPadre]="user"></app-book-table>
+          </ng-template>
+        </div>
+      </ng-container>
+      <ng-template #noBooks>
+        <div class="noBooks">
+          <img src="../../../assets/img/empty list.png" alt="">
+        </div>
+      </ng-template>
+      
+      <!-- ng-container: *ngiF = "bookList.length; else addBook-banner"
 				1. Banner 
 				2. add-book(abre addBook-component en la tercera columan)
 					ng-template:
@@ -27,9 +63,6 @@
 				 		app-card (book data + updateBook + deleteBook)
 				 		ng-template: app-tabla (book data + updateBook + deleteBook)
 				 -->
-        </section>
-      </div>
-      <div class="col-md-4">aside 2</div>
-    </div>
+    </section>
   </div>
 </main>
