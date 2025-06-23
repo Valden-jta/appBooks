@@ -23,6 +23,7 @@ import { FormProfileComponent } from './components/form-profile/form-profile.com
 import { BookCardComponent } from './components/book-card/book-card.component';
 import { BookTableComponent } from './components/book-table/book-table.component';
 import { IdBookFormatPipe } from './pipes/id-book-format.pipe';
+import { AddBookComponent } from './pages/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { IdBookFormatPipe } from './pipes/id-book-format.pipe';
     BookCardComponent,
     BookTableComponent,
     IdBookFormatPipe,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,

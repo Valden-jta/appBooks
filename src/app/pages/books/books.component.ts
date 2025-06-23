@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class BooksComponent {
   public user: User;
   public bookList: Book[];
-  public toggleView:boolean
+  public toggleView: boolean;
 
   constructor(
     private bookService: BookService,
@@ -24,13 +24,48 @@ export class BooksComponent {
   ) {
     this.user = this.userService.serviceUser;
     this.bookService.books = [];
-    this.toggleView = false
+    this.toggleView = false;
   }
 
   ngOnInit(): void {
     this.reset();
   }
- 
+  
+   scroll(sectionId: string): void {
+    let element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // * Eliminar libro (viene del componente)
+  deleteBook(book: Book) {
+    this.bookService.delete(book.id_book).subscribe(
+      (res: ApiAnswer) => {
+        if (Array.isArray(res.data)) this.bookService.books = res.data;
+        this.reset();
+        this.toastr.success(res.message, '', {
+          timeOut: 2000,
+          positionClass: 'toast-top-right',
+        });
+      },
+      (error) => {
+        this.toastr.error(error.error?.message || 'Error de conexión', '', {
+          timeOut: 2000,
+          positionClass: 'toast-bottom-right',
+        });
+      }
+    );
+  }
+
+  // * FIltro
+  filtrar(title: number): void {
+    // Capturar nombre
+    // Buscar coincidencias en bookService.books
+    // Si las hay, pasar ese id en bookservice.getOne(book.id_book)
+    // Si no, devolver uuuuups
+  }
+
   reset(): void {
     this.bookService.getAll(this.user.id_user).subscribe(
       (res: ApiAnswer) => {
@@ -38,10 +73,6 @@ export class BooksComponent {
         this.bookList = this.bookService.books;
         console.log('lista importada correctamente');
         console.log(this.bookList);
-        this.toastr.success(res.message, '', {
-          timeOut: 2000,
-          positionClass: 'toast-top-right',
-        });
       },
       (error) => {
         this.toastr.error(error.error?.message || 'Error de conexión', '', {

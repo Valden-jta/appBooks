@@ -16,10 +16,13 @@ export class BookTableComponent {
   // Comunicación entre componentes
   @Input() userPadre!: User;
   @Input() bookListPadre!: Book[];
-  @Input() addedBook!: Book;
   @Output() deleteBook = new EventEmitter<Book>();
 
   constructor(private bookService: BookService) {}
 
   ngOnInit(): void {}
+
+  delete(book: Book): void {
+    this.deleteBook.emit(book);
+  }
 }

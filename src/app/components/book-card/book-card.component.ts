@@ -25,6 +25,9 @@ export class BookCardComponent {
     
   }
 
-
   ngOnInit(): void {}
+
+    delete(book: Book): void {
+    this.deleteBook.emit(book);
+  }
 }

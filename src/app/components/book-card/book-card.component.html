@@ -8,8 +8,8 @@
                 <p class=" --author">{{ book.author }}</p>
                 <p><span class= "--type">{{book.type}}</span><span class="--separator"></span> <span class="--price ">{{ book.price }} €</span></p>
                 <div class="button__container">
-                      <button class="" type="button">Editar <i class="fa-solid fa-pen-to-square"></i></button>
-                      <button class="" type="button" (click)="eliminar(book)">Eliminar <i class="fa-solid fa-x"></i></button>
+                      <button class="" type="button" (click)="update(book)">Editar <i class="fa-solid fa-pen-to-square"></i></button>
+                      <button class="" type="button" (click)="delete(book)">Eliminar <i class="fa-solid fa-x"></i></button>
                 </div>
             </div>
         </div>
