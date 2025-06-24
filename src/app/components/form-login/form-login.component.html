@@ -3,7 +3,7 @@
     <h2 class="form__title">Log in</h2>
     <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="row">
-            <div class="form__element form-floating">
+            <div class="form__element--login form-floating">
                 <input class="form-control" #emailId="ngModel" type="email" name="email"
                     placeholder="Tu email de registro" [(ngModel)]="user.email" [ngClass]="{
             'is-invalid': (emailId.dirty || emailId.touched) && emailId.invalid
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="form__element form-floating">
+            <div class="form__element--login form-floating">
                     <input class="form-control" #passwordId="ngModel" [type]="showPassword ? 'text' : 'password'"
                         name="password" placeholder="Tu contraseña" [(ngModel)]="user.password" [ngClass]="{
               'is-invalid':

@@ -72,7 +72,7 @@ export class FormRegisterComponent implements OnInit {
       this.newUser.password = this.formRegister.value.password;
 
       this.userService.register(this.newUser).subscribe(
-        (res: ApiAnswer) => {
+        (res: ApiAnswer<User>) => {
           console.log('formulario enviado');
           console.log(res.data);
           this.toastr.success(res?.message || 'Usuario registrado', '', {

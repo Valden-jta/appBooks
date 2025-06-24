@@ -17,21 +17,7 @@
     font-weight: 800;
 }
 
-.--highlight {
-  font-size: 2.5rem;
-  font-weight: 800;
-  position:relative;
-  z-index: 99;
-}
 
-.--highlight::after {
-  z-index:9;
-  content: '';
-  position:absolute;
-  left: 0; right: 0; bottom: -.250em;
-  height: .25em;
-  background: var(--yellow);
-}
 
 
 

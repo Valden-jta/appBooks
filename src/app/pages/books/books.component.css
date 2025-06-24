@@ -1,5 +1,7 @@
 /* * -------------- Barra lateral -------------- */
-
+main {
+  min-height: 80vh;
+}
 .submenu {
     background-color: rgba(var(--blue-rgb), 0.5);
 }

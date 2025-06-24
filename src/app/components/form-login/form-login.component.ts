@@ -27,11 +27,11 @@ export class FormLoginComponent {
 
   iniciarSesion(email: String, password: String) {
     this.userService.login(this.user).subscribe(
-      (res: ApiAnswer) => {
+      (res: ApiAnswer<User>) => {
         this.userService.onLogin(true);
         console.log(this.logged$);
 
-        if (res.data && !Array.isArray(res.data) && 'email' in res.data) {
+        if (res.data) {
           this.userService.serviceUser = new User(
             res.data.id_user,
             res.data.name,

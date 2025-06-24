@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Book } from '../../models/book';
 import { User } from '../../models/user';
+import { ApiAnswer } from '../../models/api-answer';
 
 import { BookService } from 'src/app/shared/book.service';
 import { UserService } from 'src/app/shared/user.service';
-import { ApiAnswer } from '../../models/api-answer';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -23,12 +23,16 @@ export class BooksComponent {
     private toastr: ToastrService
   ) {
     this.user = this.userService.serviceUser;
+    this.bookList = [];
     this.bookService.books = [];
     this.toggleView = false;
   }
 
   ngOnInit(): void {
+    console.log("Usuario");
+    console.log(this.user);
     this.reset();
+
   }
   
    scroll(sectionId: string): void {
@@ -68,8 +72,8 @@ export class BooksComponent {
 
   reset(): void {
     this.bookService.getAll(this.user.id_user).subscribe(
-      (res: ApiAnswer) => {
-        if (Array.isArray(res.data)) this.bookService.books = res.data;
+      (res: ApiAnswer<Book[]>) => {
+        this.bookService.books = res.data;
         this.bookList = this.bookService.books;
         console.log('lista importada correctamente');
         console.log(this.bookList);

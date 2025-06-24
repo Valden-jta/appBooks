@@ -29,6 +29,7 @@ html {
 }
 main {
   background-color: var(--background);
+  min-height: 75vh;
 }
 
 h1,
@@ -46,6 +47,23 @@ p {
   font-family: var(--text-font);
 }
 
+/* ? --------------- TEXTO --------------- */
+
+.--highlight {
+  font-size: 2.5rem;
+  font-weight: 800;
+  position:relative;
+  z-index: 99;
+}
+
+.--highlight::after {
+  z-index:9;
+  content: '';
+  position:absolute;
+  left: 0; right: 0; bottom: -.250em;
+  height: .25em;
+  background: var(--yellow);
+}
 /* ? --------------- FORMULARIOS --------------- */
 
 .form__container {
@@ -122,12 +140,15 @@ a.form__subtitle {
 }
 
 .form__element {
-  max-width: 20vw;
   width: 100%;
   position: relative;
 }
 
-.form__element > input  {
+.form__element--login {
+  max-width: 20vw;
+}
+
+.form__element > input, .form__element--login > input, .form__element > select  {
   width: 100%;
   box-sizing: border-box;
   color: var(--black);
@@ -140,7 +161,7 @@ a.form__subtitle {
   border-radius: 2em;
 }
 
-.form__element > button {
+.form__element > button, .form__element--login > button {
   position: absolute;
   width: 2.5em;
   border: none;
@@ -153,7 +174,7 @@ a.form__subtitle {
   padding: 0;
 }
 
-.form__element > label {
+.form__element > label, .form__element--login > label {
   width: 60%;
   box-sizing: border-box;
   font-family: var(--text-font);
@@ -163,10 +184,6 @@ a.form__subtitle {
   background: inherit !important;
   margin-left: 2em !important;
 }
-
-
-
-
 
 .--center {
   display: flex;

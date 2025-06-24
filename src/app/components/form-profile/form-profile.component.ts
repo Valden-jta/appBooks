@@ -72,8 +72,8 @@ export class FormProfileComponent implements OnInit {
     let editedObject = this.editUser(this.user, this.editedUser);
     console.log(editedObject);
     this.userService.edit(editedObject).subscribe(
-      (res: ApiAnswer) => {
-        if  (res.data && !Array.isArray(res.data) && 'email' in res.data) {
+      (res: ApiAnswer<User>) => {
+        if  (res.data) {
           this.confirmPassword = '';
           this.userService.serviceUser = res.data;
           this.changes(this.userService.serviceUser);

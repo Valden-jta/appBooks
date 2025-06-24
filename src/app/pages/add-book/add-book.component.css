@@ -1,0 +1,28 @@
+.img, .newBook__img {
+  width: 60%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  margin: 1em auto;
+}
+
+.newBook__img {
+    object-fit: cover;
+    width: 70%;
+}
+
+.newBook {
+    box-sizing: border-box;
+    margin: 1em auto;
+    padding: 1em 1.75em 1em 0;
+    border-radius: 35px;
+    box-shadow: 5px 5px 10px 5px rgba(50,50,49,0.1);
+-webkit-box-shadow: 5px 5px 10px 5px rgba(50,50,49,0.1);
+-moz-box-shadow: 5px 5px 10px 5px rgba(50,50,49,0.1);
+}
+
+.newBook_col {
+    padding:0;
+    margin: 0;
+}
