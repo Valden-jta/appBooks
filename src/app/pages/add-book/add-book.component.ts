@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import { Book } from 'src/app/models/book';
@@ -21,7 +21,6 @@ export class AddBookComponent {
   public books: Book[] = [];
   public book!: Book;
   public addedBook!: Book;
-  public ref: number;
   public formBook!: FormGroup;
   public types: String[] = ['Tapa Blanda', 'Tapa Dura'];
 

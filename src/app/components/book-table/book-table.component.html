@@ -17,7 +17,7 @@
         <td>{{ book.author }}</td>
         <td>{{ book.type }}</td>
         <td>{{ book.price }} €</td>
-        <td class="icons"><i class="fa-solid fa-pen-to-square" (clic)="update(book)"></i>  <i class="fa-solid fa-trash" (click)="delete(book)"></i> </td>
+        <td class="icons"><i class="fa-solid fa-pen-to-square" (clic)="update(book)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></i>  <i class="fa-solid fa-trash" (click)="delete(book)"></i> </td>
       </tr>
     </ng-container>
   </tbody>

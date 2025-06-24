@@ -20,6 +20,7 @@ export class BookCardComponent {
   @Input() bookListPadre!: Book[];
   @Input() addedBook!: Book;
   @Output() deleteBook = new EventEmitter<Book>();
+  @Output() updateBook = new EventEmitter<Book>();
 
   constructor(private bookService: BookService ) {
     
@@ -29,5 +30,9 @@ export class BookCardComponent {
 
     delete(book: Book): void {
     this.deleteBook.emit(book);
+  }
+
+    update(book: Book):void {
+    this.updateBook.emit(book);
   }
 }

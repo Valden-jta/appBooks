@@ -23,7 +23,7 @@
       </ul>
     </aside>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-10">
     <section class="dashboard" >
       <ng-container *ngIf = "bookList.length; else noBooks">
         <div class="filters d-flex flex-row">
@@ -41,10 +41,10 @@
         </div>
         <div>
           <ng-container *ngIf="!toggleView; else bookTable">
-            <app-book-card [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)"></app-book-card>
+            <app-book-card [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)" (updateBook)="selectBook($event)"></app-book-card>
           </ng-container>
           <ng-template #bookTable>
-            <app-book-table [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)"></app-book-table>
+            <app-book-table [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)" (updateBook)="selectBook($event)"></app-book-table>
           </ng-template>
         </div>
       </ng-container>
@@ -66,3 +66,61 @@
     </section>
   </div>
 </main>
+<!-- Offcanvas -->
+ <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h3 class="form__title">Editar libro</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="form__container py-5">
+                <form class="form" [formGroup]="formBook" (ngSubmit)="onSubmit()">
+                    <p class="form__subtitle">Rellena los datos que quieras modificar</p>
+
+                    <div class="form__element form-floating">
+                        <input type="text" class="form-control" formControlName="title" placeholder="selectedBook?.title || 'Título'" />
+                        <label for="title" class="form__element-label">{{selectedBook?.title || 'Título'}}</label>
+                    </div>
+
+                    <div class="form__element form-floating">
+                        <input type="text" class="form-control" formControlName="author" placeholder="selectedBook?.author || 'Autor'" />
+                        <label for="author" class="form__element-label">{{selectedBook?.author || 'Autor'}}</label>
+                    </div>
+
+                    <div class="form__element form-floating">
+                        <input type="text" class="form-control" formControlName="photo" placeholder="selectedBook?.photo || 'URL de la imagen'"/>
+                        <label for="photo" class="form__element-label">{{selectedBook?.photo || 'URL de la imagen'}}</label>
+                    </div>
+
+                    <div class="form__element form-floating">
+                        <select class="form-control form-select" formControlName="type" placeholder="selectedBook?.type || 'Tipo de cubierta'">
+                            <option value="" disabled selected>{{selectedBook?.type}}</option>
+                            <option *ngFor="let typeName of types" [value]="typeName">{{ typeName }}</option>
+                        </select>
+                        <label for="type" class="form__element-label">{{selectedBook?.type || 'Tipo de cubierta'}}</label>
+                    </div>
+
+                    <div class="form__element form-floating">
+                        <input type="number" class="form-control" formControlName="price" placeholder="selectedBook?.price?.toString() || 'Precio'" min="0"
+                            [ngClass]="{
+          'is-invalid':
+            (formBook.get('price')?.dirty ||
+              formBook.get('price')?.touched) &&
+            !formBook.get('price')?.valid
+        }" />
+                        <div *ngIf="!formBook.get('price')?.valid && (formBook.get('price')?.dirty || formBook.get('price')?.touched)"
+                            class="invalid-feedback">
+                            El precio  debe ser mayor o igual a 0
+                        </div>
+                        <label for="price" class="form__element-label">{{selectedBook?.price?.toString() || 'Precio'}}</label>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button class="form__button cta --bg-yellow " type="submit" data-bs-dismiss="offcanvas" aria-label="Close">
+                            Editar libro
+                        </button>
+                    </div>
+                </form>
+            </div>
+  </div>
+</div>
