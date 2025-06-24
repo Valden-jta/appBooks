@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Book } from '../../models/book';
 import { User } from '../../models/user';
 import { ApiAnswer } from '../../models/api-answer';
+import { PutDeleteResult } from 'src/app/models/interface-results';
 
 import { BookService } from 'src/app/shared/book.service';
 import { UserService } from 'src/app/shared/user.service';
@@ -29,13 +30,12 @@ export class BooksComponent {
   }
 
   ngOnInit(): void {
-    console.log("Usuario");
+    console.log('Usuario');
     console.log(this.user);
     this.reset();
-
   }
-  
-   scroll(sectionId: string): void {
+
+  scroll(sectionId: string): void {
     let element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -44,14 +44,16 @@ export class BooksComponent {
 
   // * Eliminar libro (viene del componente)
   deleteBook(book: Book) {
-    this.bookService.delete(book.id_book).subscribe(
-      (res: ApiAnswer) => {
-        if (Array.isArray(res.data)) this.bookService.books = res.data;
-        this.reset();
-        this.toastr.success(res.message, '', {
-          timeOut: 2000,
-          positionClass: 'toast-top-right',
-        });
+    this.bookService.delete(book).subscribe(
+      (res: ApiAnswer<PutDeleteResult>) => {
+        if (res.data.affectedRows) {
+          console.log(res.data);
+          this.reset();
+          this.toastr.success(res.message, '', {
+            timeOut: 2000,
+            positionClass: 'toast-top-right',
+          });
+        }
       },
       (error) => {
         this.toastr.error(error.error?.message || 'Error de conexión', '', {

@@ -33,8 +33,8 @@ export class BookService implements OnInit {
     return this.http.put<ApiAnswer>(this.url, editedBook);
   }
 
-  delete(id:number): Observable<ApiAnswer> {
-    return this.http.delete<ApiAnswer>(`${this.url}?id=${id}`);;
+  delete(deletedBook:Book): Observable<ApiAnswer> {
+    return this.http.delete<ApiAnswer>(this.url,{body: deletedBook});
   }
 
   ngOnInit(): void {

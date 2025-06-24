@@ -13,7 +13,6 @@ export interface PostResult {
   newBook: Book;
 }
 export interface PutDeleteResult {
-  result: {
     fieldCount: number;
     affectedRows: number;
     insertId: number;
@@ -21,5 +20,4 @@ export interface PutDeleteResult {
     serverStatus: number;
     warningStatus: number;
     changedRows: number;
-  };
 }

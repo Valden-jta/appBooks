@@ -41,10 +41,10 @@
         </div>
         <div>
           <ng-container *ngIf="!toggleView; else bookTable">
-            <app-book-card [bookListPadre]="bookList" [userPadre]="user"></app-book-card>
+            <app-book-card [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)"></app-book-card>
           </ng-container>
           <ng-template #bookTable>
-            <app-book-table [bookListPadre]="bookList" [userPadre]="user"></app-book-table>
+            <app-book-table [bookListPadre]="bookList" [userPadre]="user" (deleteBook)="deleteBook($event)"></app-book-table>
           </ng-template>
         </div>
       </ng-container>
@@ -56,7 +56,7 @@
       
       <!-- ng-container: *ngiF = "bookList.length; else addBook-banner"
 				1. Banner 
-				2. add-book(abre addBook-component en la tercera columan)
+				2. add-book(abre addBook-component en la tercera columna)
 					ng-template:
                 	A. filtro + dropdown seleccion de vista (cards/tabla)
 					B.ng-container: *ngIf= "dropdown == cards; else table" 
