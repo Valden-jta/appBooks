@@ -1,6 +1,7 @@
 header {
   margin: 0 12em;
 }
+
 .myNav {
   background-color: var(--white);
   margin: 0 auto;
@@ -13,32 +14,38 @@ header {
 }
 
 a.myNav-link {
-   position: relative;
-   display: inline-block;
-   overflow: hidden;
-   margin: 0 1rem;
-   font-family: var(--text-font);
-   font-weight: 500;
- }
- 
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0 1rem;
+  font-family: var(--text-font);
+  font-weight: 500;
+}
 
- a.myNav-link::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   height: .25em;
-   width: 100%;
-   background-color:var(--yellow);
-   background-size: 200% auto;
-   transition: all .3s;
-   transform: translateX(-100%);
- }
- 
- a.myNav-link:hover::after, a.myNav-link.active::after {
-   transform: translateX(0%);
- }
- 
+a.myNav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.25em;
+  width: 100%;
+  background-color: var(--yellow);
+  background-size: 200% auto;
+  transition: all 0.3s;
+  transform: translateX(-100%);
+}
+
+a.myNav-link:hover::after,
+a.myNav-link.active::after {
+  transform: translateX(0%);
+}
+
+.dropdown-toggle {
+  font-family: var(--text-font);
+  font-weight: 500;
+}
+
+
 .myNav-brand {
   display: flex;
   flex-direction: column;

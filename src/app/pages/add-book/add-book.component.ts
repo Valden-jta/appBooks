@@ -16,7 +16,7 @@ import { PostResult } from 'src/app/models/interface-results';
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.css'],
 })
-export class AddBookComponent {
+export class AddBookComponent implements OnInit {
   public user: User;
   public books: Book[] = [];
   public book!: Book;

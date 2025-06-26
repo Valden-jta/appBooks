@@ -1,0 +1,133 @@
+<div class="row filters p-2">
+    <!-- toggle vista -->
+    <div class="switch__wrapper col-md-3 d-flex flex-row justify-content-start py-2">
+        <span>Vista</span>
+        <label class="switch">
+            <input class="toggle" type="checkbox" [(ngModel)]="toggleView" />
+            <span class="slider"></span>
+            <span class="card-side"></span>
+        </label>
+    </div>
+     <div *ngIf="toggleView" class="filter__wrapper col-md-9 d-flex flex-row flex-wrap gap-2 align-items-center py-2">
+        <div class="d-flex align-items-center gap-2">
+            <span>Título</span>
+            <input type="text" [(ngModel)]="filters.title" (input)="applyFilters()" class="form-control form-control-sm"
+                placeholder="Filtrar título" />
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span>Autor</span>
+            <input type="text" [(ngModel)]="filters.author" (input)="applyFilters()" class="form-control form-control-sm"
+                placeholder="Filtrar autor" />
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span>Tipo</span>
+           <select [(ngModel)]="filters.type" (change)="applyFilters()" class="form-control form-control-sm form-select">
+        <option value="">Todos</option>
+        <option value="Tapa Dura">Tapa Dura</option>
+        <option value="Tapa Blanda">Tapa Blanda</option>
+    </select>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span>Precio</span>
+            <input type="number" min="0" [max]="filters.maxPrice" [(ngModel)]="filters.minPrice" (input)="applyFilters()"
+                class="form-control form-control-sm" style="width: 70px" placeholder="Mín" />
+            <span>-</span>
+            <input type="number" [min]="filters.minPrice" [max]="maxPrice" [(ngModel)]="filters.maxPrice"
+                (input)="applyFilters()" class="form-control form-control-sm" style="width: 70px" placeholder="Máx" />
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="toggleView; else tableView">
+    <div class="myCard__container">
+    <ng-container *ngFor="let book of filteredBooks">
+        <div [id]="'card_' + book.id_book" class="myCard" [style.--photo]="'url(' + book.photo + ')'">
+            <div class="row">
+                <div class="myCard__data">
+                    <h3 class="--title">{{ book.title }}</h3>
+                    <p class="--author">{{ book.author }}</p>
+                    <div class="button__container">
+                        <button type="button" (clic)="update(book)" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <i class="fa-solid fa-pen-to-square" ></i>
+                        </button>
+                        <button type="button" (click)="delete(book)">
+                            <i class="fa-solid fa-trash" ></i>
+                        </button>
+                        <button type="button" (click)="showOne(book)">
+                            <i class="fa-solid fa-square-plus" ></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+</ng-container>
+<ng-template #tableView>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Referencia</th>
+      <th scope="col">
+        <div class=" px-1 d-flex align-items-center gap-2">
+          <span>Título</span>
+          <input type="text" [(ngModel)]="filters.title" (input)="applyFilters()" class=" px-1 form-control form-control-sm"
+            placeholder="Filtrar título" />
+        </div>
+      </th>
+      <th scope="col">
+         <div class=" px-1 d-flex align-items-center gap-2">
+           <span>Autor</span>
+           <input type="text" [(ngModel)]="filters.author" (input)="applyFilters()" class=" px-1 form-control form-control-sm"
+             placeholder="Filtrar autor" />
+         </div>
+      </th>
+      <th scope="col">
+         <div class=" px-1 d-flex align-items-center gap-2">
+           <span>Tipo</span>
+           <select [(ngModel)]="filters.type" (change)="applyFilters()" class="form-control form-control-sm form-select">
+        <option value="">Todos</option>
+        <option value="Tapa Dura">Tapa Dura</option>
+        <option value="Tapa Blanda">Tapa Blanda</option>
+    </select>
+         </div>
+      </th>
+      <th scope="col">
+        <div class=" px-1 d-flex align-items-center gap-2">
+          <span>Precio</span>
+          <input type="number" min="0" [max]="filters.maxPrice" [(ngModel)]="filters.minPrice" (input)="applyFilters()"
+            class="form-control form-control-sm" style="width: 70px" placeholder="Mín" />
+          <span>-</span>
+          <input type="number" [min]="filters.minPrice" [max]="maxPrice" [(ngModel)]="filters.maxPrice"
+            (input)="applyFilters()" class="form-control form-control-sm" style="width: 70px" placeholder="Máx" />
+        </div>
+      </th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let book of filteredBooks; let isEven = even">
+      <tr [ngClass]="isEven ? 'table-secondary' : 'table-light'">
+        <th scope="row">{{ book.id_book | idBookFormat }}</th>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.type }}</td>
+        <td>{{ book.price }} €</td>
+        <td class="icons">
+          <button type="button" (click)="update(book)" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            <i class="fa-solid fa-pen-to-square" ></i>
+          </button>
+          <button type="button" (click)="delete(book)">
+            <i class="fa-solid fa-trash" ></i>
+          </button>
+          <button type="button" (click)="showOne(book)">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+</ng-template>
+

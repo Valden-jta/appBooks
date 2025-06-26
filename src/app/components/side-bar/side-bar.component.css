@@ -1,0 +1,71 @@
+aside {
+  background: var(--black);
+  color: var(--white);
+  height: 100%;
+  width: 18.75em;
+}
+
+.aside__list-container {
+  background-color: #3c3c3c;
+  width: 18.75em;
+}
+
+.aside__list-item {
+  width: 95%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #3c3c3c;
+  transition: 0.2s all linear;
+}
+
+.aside__list-item:hover {
+  background-color: #515150;
+  border-radius: 35px;
+  border-bottom: 1px solid #848483;
+}
+
+
+.aside__img-container {
+  width: 5em;
+  height: 5em;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid var(--yellow);
+  background-image: var(--photo);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.aside__user-data-text {
+  font-family: var(--font-title);
+  font-size: 1em;
+  font-weight: 700;
+  margin: 5px auto;
+  padding: 0 1em;
+}
+
+.--subtext {
+  font-family: var(--font-title);
+  font-size: 0.875em;
+  font-weight: normal;
+  margin: 10px auto;
+}
+
+.separator {
+  border: none;
+  border-bottom: 1px solid var(--white);
+  margin: 1.5em auto;
+  width: 60%;
+}
+
+.coming-feature {
+  opacity: 0.7;
+}
+
+@media (max-width: 850px) {
+  aside,
+  .side-bar, /* Usa la clase real de tu sidebar si es distinta */
+  .--custom {
+    display: none !important;
+  }
+}

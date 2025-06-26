@@ -8,7 +8,7 @@ import { ApiAnswer } from '../models/api-answer';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnInit {
   private url = 'http://localhost:3000';
   // public logged: boolean = false;
   public serviceUser: User | null;
@@ -16,6 +16,10 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.serviceUser = null;
+    // this.serviceUser = new User (5,"Arturo","Campos","arturo.campos@email.com","https://images.pexels.com/photos/15779915/pexels-photo-15779915/free-photo-of-a-young-man-with-curly-hair-in-front-of-a-blue-light.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500","arturoPassword_01")
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   // LOGIN
@@ -35,7 +39,6 @@ export class UserService {
     return this.http.put<ApiAnswer>(`${this.url}/usuarios`, editedObject);
   }
 
-  
 
   ngOninit(): void {
   }

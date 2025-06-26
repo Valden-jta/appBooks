@@ -1,0 +1,54 @@
+
+<aside class="d-flex flex-column justify-content-start align-items-center p-3">
+    <div class="row text-center py-4">
+        <div class="aside__img-container" [style.--photo]="'url(' + user.photo + ')'"></div>
+        <div class=" aside__user-data-text">
+            <p id="user" class="aside__user-data-text">{{nombreCompleto}}</p>
+            <p class="aside__user-data-text --subtext">{{ user.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-flex flex-nowrap justify-content-center align-items-center my-1">
+            <div class="col-4 separator mx-3"></div>
+            <i class="fa-solid fa-user-gear fa-xl"></i>
+            <div class="col-4 separator mx-3"></div>
+        </div>
+    </div>
+    <div class="row aside__list-container p-2">
+        <ul class="aside__list d-flex flex-column justify-content-center align-items-start p-0">
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 coming-feature">
+                <i class="fa-solid fa-comments px-3"></i>
+               <a class="nav-link myNav-link" routerLink="#"
+                    routerLinkActive="active">Mensajes</a>
+            </li>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4  coming-feature">
+                <i class="fa-solid fa-user-group px-3"></i>
+                <a class="nav-link myNav-link" routerLink="#"
+                    routerLinkActive="active">Amigos</a>
+            </li>
+            <div class=""></div>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 ">
+                <i class="fa-solid fa-square-plus px-3"></i>
+                <a class="nav-link myNav-link" routerLink="/books"
+                    routerLinkActive="active">Mis libros</a>
+            </li>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 ">
+                <i class="fa-solid fa-book px-3"></i>
+                <a class="nav-link myNav-link" routerLink="/addBook"
+                    routerLinkActive="active">Añadir libro</a>
+            </li>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 coming-feature ">
+               <i class="fa-solid fa-folder-plus px-3"></i>
+               <a class="nav-link myNav-link" routerLink="#" routerLinkActive="active">Crear colección</a>
+           </li>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 coming-feature">
+               <i class="fa-solid fa-layer-group px-3"></i>
+               <a class="nav-link myNav-link" routerLink="#" routerLinkActive="active">Gestionar colecciones</a>
+           </li>
+           <li class="aside__list-item d-flex justify-content-start align-items-center py-2 px-4 coming-feature">
+               <i class="fa-solid fa-file-export  px-3"></i>
+               <a class="nav-link myNav-link" routerLink="#" routerLinkActive="active">Exportar colecciones</a>
+           </li>
+       </ul>
+    </div>
+</aside>

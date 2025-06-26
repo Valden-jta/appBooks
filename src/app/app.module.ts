@@ -20,10 +20,11 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormProfileComponent } from './components/form-profile/form-profile.component';
-import { BookCardComponent } from './components/book-card/book-card.component';
-import { BookTableComponent } from './components/book-table/book-table.component';
+import { BookListComponent } from './components/book-list/book-list.component';
 import { IdBookFormatPipe } from './pipes/id-book-format.pipe';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { SingleBookComponent } from './pages/single-book/single-book.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,11 @@ import { AddBookComponent } from './pages/add-book/add-book.component';
     FormLoginComponent,
     FormProfileComponent,
     BooksComponent,
-    BookCardComponent,
-    BookTableComponent,
+    BookListComponent,
     IdBookFormatPipe,
     AddBookComponent,
+    SingleBookComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,

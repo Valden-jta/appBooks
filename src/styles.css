@@ -28,7 +28,6 @@ html {
   background-color: var(--secondary);
 }
 main {
-  background-color: var(--background);
   min-height: 75vh;
 }
 
@@ -45,6 +44,15 @@ h6 {
 
 p {
   font-family: var(--text-font);
+}
+
+.generic__img {
+  width: 60%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  margin: 1em auto;
 }
 
 /* ? --------------- TEXTO --------------- */
@@ -64,6 +72,8 @@ p {
   height: .25em;
   background: var(--yellow);
 }
+
+
 /* ? --------------- FORMULARIOS --------------- */
 
 .form__container {
@@ -97,6 +107,10 @@ p {
   display: flex;
   align-items: center;
   padding-left: 1.125em;
+}
+
+.--alt {
+  font-size: 1.5em;
 }
 
 .form__title::before,
@@ -168,7 +182,7 @@ a.form__subtitle {
   background: none;
   position: absolute;
   right: 3em;
-  top: 1.2em; 
+  top: 1.5em; 
   transform: translateY(-25%);
   z-index: 2;
   padding: 0;
@@ -313,6 +327,8 @@ a.form__subtitle {
 .cta:hover .cta__icon {
   transform: rotate(360deg);
 }
+
+
 
 /* ? --------------- blob --------------- */
 

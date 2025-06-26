@@ -1,44 +1,81 @@
-<form #formProfile="ngForm" class="form-edit" (ngSubmit)="onSubmit(formProfile)">
-    <legend class="form-edit__title">Modificar Datos</legend>
-    <input class="form-edit__input" type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="newName"
-        #nombreCtrl="ngModel" />
-    <input class="form-edit__input" type="text" name="apellidos" id="apellidos" placeholder="Apellidos"
-        [(ngModel)]="newLast_name" #apellidosCtrl="ngModel" />
-    <input class="form-edit__input" type="email" name="mail" id="mail" placeholder="Correo electrónico"
-        [(ngModel)]="newEmail" #mailCtrl="ngModel" email />
-    <input class="form-edit__input" type="text" name="photo" id="photo" placeholder="URL de la imagen"
-        [(ngModel)]="newPhoto" #photoCtrl="ngModel" />
-    <legend class="form-edit__title">Cambiar la contraseña</legend>
-<input class="form-edit__input" type="password" name="newPassword" id="newPassword"
-    [(ngModel)]="newPassword" #newPasswordCtrl="ngModel"
-    placeholder="Contraseña nueva"
-    [ngClass]="{'is-invalid': (newPasswordCtrl.dirty || newPasswordCtrl.touched) && newPasswordCtrl.invalid}"
-    [pattern]="passwordPattern" />
-<div *ngIf="newPassword && newPasswordCtrl.invalid && newPasswordCtrl.errors?.pattern" class="invalid-feedback">
-    La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.
+
+
+<div class="form__container py-5">
+  <form #formProfile="ngForm" class="form" (ngSubmit)="onSubmit(formProfile)">
+    <h3 class="form__title --alt">Modificar Datos</h3>
+    <div class="row">
+      <div class="col-md-6 form__element form-floating">
+        <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre"
+          [(ngModel)]="newName" #nombreCtrl="ngModel" />
+        <label for="nombre" class="form__element-label">Nombre</label>
+      </div>
+      <div class="col-md-6 form__element form-floating">
+        <input class="form-control" type="text" name="apellidos" id="apellidos" placeholder="Apellidos"
+          [(ngModel)]="newLast_name" #apellidosCtrl="ngModel" />
+        <label for="apellidos" class="form__element-label">Apellidos</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form__element form-floating">
+        <input class="form-control mb-2" type="email" name="mail" id="mail" placeholder="Correo electrónico"
+          [(ngModel)]="newEmail" #mailCtrl="ngModel" email />
+        <label for="mail" class="form__element-label">Correo electrónico</label>
+      </div>
+      <div class="form__element form-floating">
+        <input class="form-control" type="text" name="photo" id="photo" placeholder="URL de la imagen"
+          [(ngModel)]="newPhoto" #photoCtrl="ngModel" />
+        <label for="photo" class="form__element-label">URL de la imagen</label>
+      </div>
+    </div>
+
+    <h3 class="form__title --alt">Cambiar la contraseña</h3>
+    <div class="row">
+      <div class="form__element form-floating">
+        <input class="form-control mb-2" type="password" name="newPassword" id="newPassword"
+          [(ngModel)]="newPassword" #newPasswordCtrl="ngModel"
+          placeholder="Contraseña nueva"
+          [ngClass]="{'is-invalid': (newPasswordCtrl.dirty || newPasswordCtrl.touched) && newPasswordCtrl.invalid}"
+          [pattern]="passwordPattern" />
+        <label for="newPassword" class="form__element-label">Contraseña nueva</label>
+        <div *ngIf="newPassword && newPasswordCtrl.invalid && newPasswordCtrl.errors?.pattern" class="invalid-feedback">
+          La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número.
+        </div>
+      </div>
+      <div class="form__element form-floating">
+        <input class="form-control" type="password" name="newPasswordCheck" id="newPasswordCheck"
+          [(ngModel)]="newPasswordCheck" #newPasswordCheckCtrl="ngModel"
+          placeholder="Repite la contraseña nueva"
+          [ngClass]="{'is-invalid': (newPasswordCheckCtrl.dirty || newPasswordCheckCtrl.touched) && (newPassword !== newPasswordCheck)}" />
+        <label for="newPasswordCheck" class="form__element-label">Repite la contraseña nueva</label>
+        <div *ngIf="newPassword && newPasswordCheck && newPassword !== newPasswordCheck" class="invalid-feedback">
+          Las contraseñas no coinciden.
+        </div>
+      </div>
+    </div>
+
+    <h3 class="form__title --alt">Introduce la contraseña actual para confirmar</h3>
+    <div class="row">
+      <div class="form__element form-floating">
+        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
+          [(ngModel)]="confirmPassword" #confirmPasswordCtrl="ngModel"
+          [ngClass]="{'is-invalid': (confirmPasswordCtrl.dirty || confirmPasswordCtrl.touched) && confirmPasswordCtrl.invalid}"
+          minlength="8" required />
+        <label for="confirmPassword" class="form__element-label">Contraseña actual</label>
+        <div *ngIf="(confirmPasswordCtrl.dirty || confirmPasswordCtrl.touched) && confirmPasswordCtrl.invalid" class="invalid-feedback">
+          <div *ngIf="confirmPasswordCtrl.errors?.['required']">La contraseña es obligatoria</div>
+          <div *ngIf="confirmPasswordCtrl.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</div>
+        </div>
+      </div>
+    </div>
+    <div >
+      <button class="form-edit__button cta --bg-yellow" type="submit"
+        [disabled]="
+          formProfile.invalid ||
+          (newPassword && newPasswordCtrl.invalid) ||
+          (newPassword && newPasswordCheck && newPassword !== newPasswordCheck)
+        ">
+        Guardar cambios
+      </button>
+    </div>
+  </form>
 </div>
-<input class="form-edit__input" type="password" name="newPasswordCheck" id="newPasswordCheck"
-    [(ngModel)]="newPasswordCheck" #newPasswordCheckCtrl="ngModel"
-    placeholder="Repite la contraseña nueva"
-    [ngClass]="{'is-invalid': (newPasswordCheckCtrl.dirty || newPasswordCheckCtrl.touched) && (newPassword !== newPasswordCheck)}" />
-<div *ngIf="newPassword && newPasswordCheck && newPassword !== newPasswordCheck" class="invalid-feedback">
-    <p>Las contraseñas no coinciden.</p>
-</div>
-<legend class="form-edit__title">Introduce la contraseña actual para confirmar</legend>
-<input class="form-edit__input" type="password" name="confirmPassword" id="confirmPassword"
-    [(ngModel)]="confirmPassword" #confirmPasswordCtrl="ngModel"
-    [ngClass]="{'is-invalid': (confirmPasswordCtrl.dirty || confirmPasswordCtrl.touched) && confirmPasswordCtrl.invalid}"
-    minlength="8" required />
-<div *ngIf="(confirmPasswordCtrl.dirty || confirmPasswordCtrl.touched) && confirmPasswordCtrl.invalid" class="invalid-feedback">
-    <p *ngIf="confirmPasswordCtrl.errors?.['required']">La contraseña es obligatoria</p>
-    <p *ngIf="confirmPasswordCtrl.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</p>
-</div>
-<button class="form-edit__button" type="submit"
-    [disabled]="
-      formProfile.invalid ||
-      (newPassword && newPasswordCtrl.invalid) ||
-      (newPassword && newPasswordCheck && newPassword !== newPasswordCheck)
-    ">
-    Guardar cambios
-</button>
-</form>

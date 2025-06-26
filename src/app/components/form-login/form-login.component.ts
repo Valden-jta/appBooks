@@ -11,7 +11,7 @@ import { User } from '../../models/user';
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.css'],
 })
-export class FormLoginComponent {
+export class FormLoginComponent implements OnInit {
   public user: User;
   public showPassword: Boolean;
   public logged$ = this.userService.logged$;

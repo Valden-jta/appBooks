@@ -1,5 +1,9 @@
-<main class="container bg-white">
-    <div class="row m-auto d-flex justify-content-evenly align-items-stretch">
+<main class="container-fluid row m-0 px-0 bg-white">
+     <div class="col-md-2 m-0 p-0">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="col-md-10 p-3">
+     <div class="row m-auto d-flex justify-content-evenly align-items-stretch">
         <div class="col 12 col-md-6 col-sm-12">
             <div class="form__container py-5">
                 <form class="form" [formGroup]="formBook" (ngSubmit)="onSubmit()">
@@ -98,7 +102,7 @@
                     <h2 class="newBook-title mb-4">Este es tu nuevo libro</h2>
                     <div class="row newBook">
                         <div class="newBook_col col-12 col-md-6 col-sm-12">
-                            <img class="newBook__img" [src]="addedBook.photo" [alt]="'Portada de ' + addedBook.title" />
+                            <img class="generic__img" [src]="addedBook.photo" [alt]="'Portada de ' + addedBook.title" />
                         </div>
                         <div class="newBook_col col-12 col-md-6 col-sm-12 text-start d-flex flex-column justify-content-around">
                             <p class="fs-3 fw-bold">{{addedBook.title}} - <span class="fw-normal fs-5">{{addedBook.type}}</span></p>
@@ -113,10 +117,12 @@
                 </div>
             </ng-container>
             <ng-template #bgTemplate>
-                <img src="../../../assets/img/bookshelve.jpg" class="img">
+                <img src="../../../assets/img/bookshelve.jpg" class="generic__img">
                 <h3 class="fs-2 fw-bold">Es hora de llenar la biblioteca</h3>
                 <p>  Añade tus libros y construye tu biblioteca personal para disfrutar de todas las funcionalidades de la app.</p>
             </ng-template>
         </div>
     </div>
+  </div>
+   
 </main>

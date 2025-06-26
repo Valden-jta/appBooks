@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from '../../models/book';
 import { User } from '../../models/user';
@@ -14,11 +14,11 @@ import { UserService } from 'src/app/shared/user.service';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
 })
-export class BooksComponent {
+export class BooksComponent implements OnInit {
   public user: User;
   public selectedBook: Book | null;
   public bookList: Book[];
-  public toggleView: boolean;
+  
   public formBook!: FormGroup;
   public types: String[] = ['Tapa Blanda', 'Tapa Dura'];
 
@@ -33,7 +33,6 @@ export class BooksComponent {
     this.bookService.books = [];
     this.selectedBook = null;
     this.buildForm();
-    this.toggleView = false;
   }
 
   ngOnInit(): void {
@@ -75,13 +74,6 @@ export class BooksComponent {
   // * Actualizar libro (viene del componente)
   selectBook(book: Book) {
     this.selectedBook = book;
-    // this.formBook.patchValue({
-    //   title: book.title,
-    //   author: book.author,
-    //   photo: book.photo,
-    //   type: book.type,
-    //   price: book.price,
-    // });
   }
 
   updateBook(book: Book) {
@@ -138,13 +130,6 @@ export class BooksComponent {
     this.updateBook(updatedBook);
   }
 
-  // * FIltro
-  filtrar(title: number): void {
-    // Capturar nombre
-    // Buscar coincidencias en bookService.books
-    // Si las hay, pasar ese id en bookservice.getOne(book.id_book)
-    // Si no, devolver uuuuups
-  }
 
   reset(): void {
     this.bookService.getAll(this.user.id_user).subscribe(

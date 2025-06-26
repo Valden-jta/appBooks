@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BooksComponent } from './pages/books/books.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
+import { SingleBookComponent } from './pages/single-book/single-book.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'books', component: BooksComponent },
   { path: 'addBook', component: AddBookComponent },
+  { path: 'book/:id_book', component: SingleBookComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 

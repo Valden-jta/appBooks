@@ -16,17 +16,17 @@
                             <a class="nav-link myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Usuario
-                                <i class="fa-regular fa-user"></i>
+                                {{user.name}}
+                                <i class="fa-solid fa-circle-user px-2"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link yNav-link" routerLink="/profile"
+                                <li><a class="nav-link" routerLink="/profile"
                                         routerLinkActive="active">Administrar Perfil</a></li>
                                 <li>
                                 </li>
-                                <li><a class="nav-link yNav-link" routerLink="/login" (click)="logOut(false)">
+                                <li><a class="nav-link" routerLink="/login" (click)="logOut(false)">
                                         Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket cta__icon"></i>
                                     </a></li>
                             </ul>
