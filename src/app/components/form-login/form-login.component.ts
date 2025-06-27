@@ -32,14 +32,14 @@ export class FormLoginComponent implements OnInit {
         console.log(this.logged$);
 
         if (res.data) {
-          this.userService.serviceUser = new User(
-            res.data.id_user,
-            res.data.name,
-            res.data.last_name,
-            res.data.email,
-            res.data.photo,
-            ''
-          );
+           this.userService.setUser(new User(
+          res.data.id_user,
+          res.data.name,
+          res.data.last_name,
+          res.data.email,
+          res.data.photo,
+          ''
+        ));
         }
         this.router.navigate(['/books']);
       },
@@ -59,7 +59,9 @@ export class FormLoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   onSubmit(loginForm: NgForm) {}
 }

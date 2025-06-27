@@ -1,54 +1,125 @@
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a routerLink="home">
-                <img class="myNav-brand__img" src="../../../assets/img/myBooks_logo.png" alt="Logo" />
+<nav class="navbar navbar-expand-lg">
+    <ng-container *ngIf="logged$ | async as logged; else unlogged">
+        <div class="container align-items-center">
+            <a class="navbar-brand" href="#">
+                <img class="d-block d-md-none" src="../../../assets/img/myBooks_logo.png" alt="logo" width="156"
+                    height="100" />
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-evenly align-items-center px-5">
-                    <ng-container *ngIf="logged$ | async as logged; else unlogged">
-                        <li class="nav-item px-1">
-                            <a class="nav-link myNav-link" routerLink="/books" routerLinkActive="active">Libros</a>
-                        </li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav loggedMenu">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                {{user.name}}
+                                Libros
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link" routerLink="/books" routerLinkActive="active">Mis
+                                        libros</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" routerLink="/addBook" routerLinkActive="active">Nuevo
+                                        libro</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Colecciones
+                            </a>
+                            <ul class="dropdown-menu ">
+                                <li>
+                                    <a class="nav-link disabled" routerLink="/#" routerLinkActive="active">Mis
+                                        Colecciones</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link disabled" routerLink="/#" routerLinkActive="active">Nueva
+                                        colección</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Social
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link disabled" routerLink="/#"
+                                        routerLinkActive="active">Notificaciones</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link disabled" routerLink="/#" routerLinkActive="active">Amigos</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                {{ (user$ | async)?.name }}
                                 <i class="fa-solid fa-circle-user px-2"></i>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" routerLink="/profile"
-                                        routerLinkActive="active">Administrar Perfil</a></li>
                                 <li>
+                                    <a class="nav-link" routerLink="/profile" routerLinkActive="active">Administrar
+                                        Perfil</a>
                                 </li>
-                                <li><a class="nav-link" routerLink="/login" (click)="logOut(false)">
-                                        Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket cta__icon"></i>
-                                    </a></li>
+                                <li>
+                                    <a class="nav-link" routerLink="/login" (click)="logOut(false)">
+                                        Cerrar sesión
+                                        <i class="fa-solid fa-arrow-right-from-bracket cta__icon"></i>
+                                    </a>
+                                </li>
                             </ul>
-                    </ng-container>
-                    <ng-template #unlogged>
-                        <li class="nav-item">
-                            <a class="cta --bg-yellow" routerLink="/register" routerLinkActive="active">Regístrate</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="cta" routerLink="/login" routerLinkActive="active">
-                                Iniciar sesión <i class="fa-solid fa-arrow-right-to-bracket cta__icon"></i>
-                            </a>
-                        </li>
-                    </ng-template>
-
-
-
-
-
-
                 </ul>
             </div>
         </div>
-    </nav>
-</header>
+    </ng-container>
+    <ng-template #unlogged>
+        <div class="container align-items-center">
+            <a class="navbar-brand" href="#">
+                <img src="../../../assets/img/myBooks_logo.png" alt="logo" width="156" height="100" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Escritorio -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="cta --bg-yellow" routerLink="/register" routerLinkActive="active">Regístrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="cta" routerLink="/login" routerLinkActive="active">
+                            Iniciar sesión
+                            <i class="fa-solid fa-arrow-right-to-bracket cta__icon"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Móviles y tablets -->
+                <ul class="navbar-nav d-block d-md-none justify-content-center">
+                    <li class="nav-item text-center">
+                        <a class="nav-link" routerLink="/register" routerLinkActive="active">Regístrate</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                            Iniciar sesión
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</nav>

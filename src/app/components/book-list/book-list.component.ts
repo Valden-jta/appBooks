@@ -38,6 +38,7 @@ export class BookListComponent implements OnInit, OnChanges {
     this.filteredBooks = [];
     this.minPrice = 0;
     this.maxPrice = 100;
+
   }
 
   ngOnInit(): void {
@@ -98,4 +99,5 @@ export class BookListComponent implements OnInit, OnChanges {
       this.maxPrice = 100;
     }
   }
+
 }

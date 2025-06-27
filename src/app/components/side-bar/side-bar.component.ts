@@ -1,4 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { User } from '../../models/user';
 import { UserService } from 'src/app/shared/user.service';
@@ -8,21 +9,24 @@ declare var bootstrap: any;
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.css']
+  styleUrls: ['./side-bar.component.css'],
 })
-export class SideBarComponent implements AfterViewInit {
-   public user: User;
-   public nombreCompleto: String;
+export class SideBarComponent {
+  public user: User;
+  public user$: Observable<User>;
+  public nombreCompleto: String;
 
-   constructor(
-       private userService: UserService,
-     ) {
-     this.user = this.userService.serviceUser
-     this.nombreCompleto = this.user.name + ' ' + this.user.last_name;
-    }
+  constructor(private userService: UserService) {
+    this.user$ = this.userService.user$;
+    this.nombreCompleto = '';
+  }
 
-    ngAfterViewInit() {
-    const myOffcanvas = new bootstrap.Offcanvas('#asideMenu');
-    myOffcanvas.show();
+  ngOnInit(): void {
+    this.user$ = this.userService.user$;
+    this.user$.subscribe((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
   }
 }

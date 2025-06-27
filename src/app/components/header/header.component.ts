@@ -3,6 +3,7 @@ import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
 
 import { User } from 'src/app/models/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +11,15 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  public user: User;
+  public user$ = this.userService.user$;
   public logged$ = this.userService.logged$;
 
   constructor(private userService: UserService,  private router: Router) {
-    this.user = this.userService.serviceUser
+    
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   logOut(value:boolean) {
     this.userService.onLogin(false);

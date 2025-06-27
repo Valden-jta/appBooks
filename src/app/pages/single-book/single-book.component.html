@@ -1,8 +1,115 @@
-<main class="container-fluid row m-0 px-0">
-  <div class="col-md-2 m-0 p-0">
-    <app-side-bar></app-side-bar>
-  </div>
-  <div class="col-md-10 p-3">
-    <h2>{{book?.title}}</h2>
-  </div>
+<div class="container-fluid overflow-hidden">
+  <div class="row">
+    <div class="col-md-2 m-0 p-0">
+      <app-side-bar></app-side-bar>
+    </div>
+    <div class="col-md-10 p-3 mt-3 justify-content-center align-items-center">
+      <div class="row m-0 p-0">
+        <div class="col-md-6 col-12 ">
+          <div class="row m-0 p-0 book align-items-end">
+            <div class="col-6 col-md-6 position-relative">
+              <img class="book__img" alt="Ilustración de portada" [src]="book?.photo" />
+            </div>
+            <div class="col-6 col-md-6 text-start">
+              <h3 class="--bold">{{ book?.title }}</h3>
+              <span>{{ book?.author }}</span>
+              <p class="--bold pt-3 w-100">
+                {{ book?.type }} -
+                <span class="--bigger text-end">
+                  {{ book?.price }} €
+                </span>
+              </p>
+              <div class="separator --8"></div>
+              <div class="rating">
+                <p class="pt-3 mb-0">Valoración</p>
+                <div class="rate">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+              </div>
+              <div class="separator --4 mt-5"></div>
+            </div>
+          </div>
+          <div class="pt-4 col-12">
+            <p class="sinopsis">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum culpa nulla eum pariatur
+              dolor
+              ratione provident quo eius nostrum maxime, repudiandae, fugit laboriosam, autem a totam ipsum veniam
+              inventore. Atque.. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum culpa nulla eum pariatur
+              dolor ratione provident quo eius nostrum maxime, repudiandae, fugit laboriosam, autem a totam ipsum veniam
+              inventore. Atque.</p>
+          </div>
 
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="form__container py-5">
+            <form class="form" [formGroup]="formBook" (ngSubmit)="onSubmit()">
+              <h3 class="form__title">Editar libro</h3>
+              <p class="form__subtitle">Rellena los datos que quieras modificar</p>
+
+              <div class="form__element form-floating">
+                <input type="text" class="form-control" formControlName="title" placeholder="book?.title || 'Título'" />
+                <label for="title" class="form__element-label">{{book?.title || 'Título'}}</label>
+              </div>
+
+              <div class="form__element form-floating">
+                <input type="text" class="form-control" formControlName="author"
+                  placeholder="book?.author || 'Autor'" />
+                <label for="author" class="form__element-label">{{book?.author || 'Autor'}}</label>
+              </div>
+
+              <div class="form__element form-floating">
+                <input type="text" class="form-control" formControlName="photo"
+                  placeholder="book?.photo || 'URL de la imagen'" />
+                <label for="photo" class="form__element-label">{{book?.photo || 'URL de la imagen'}}</label>
+              </div>
+
+              <div class="form__element form-floating">
+                <select class="form-control form-select" formControlName="type"
+                  placeholder="book?.type || 'Tipo de cubierta'">
+                  <option value="" disabled selected>{{book?.type}}</option>
+                  <option *ngFor="let typeName of types" [value]="typeName">{{ typeName }}</option>
+                </select>
+                <label for="type" class="form__element-label">{{book?.type || 'Tipo de cubierta'}}</label>
+              </div>
+
+              <div class="form__element form-floating">
+                <input type="number" class="form-control" formControlName="price"
+                  placeholder="book?.price?.toString() || 'Precio'" min="0" [ngClass]="{
+            'is-invalid':
+              (formBook.get('price')?.dirty ||
+                formBook.get('price')?.touched) &&
+              !formBook.get('price')?.valid
+          }" />
+                <div
+                  *ngIf="!formBook.get('price')?.valid && (formBook.get('price')?.dirty || formBook.get('price')?.touched)"
+                  class="invalid-feedback">
+                  El precio debe ser mayor o igual a 0
+                </div>
+                <label for="price" class="form__element-label">{{book?.price?.toString() || 'Precio'}}</label>
+              </div>
+
+              <div class="d-flex justify-content-center btn-group">
+                <button class="form__button cta --bg-yellow " type="submit">
+                  Editar libro
+                </button>
+                <button class="cta" type="button" (click)="deleteBook(book)">
+                  Eliminar<i class="fa-solid fa-trash px-3"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

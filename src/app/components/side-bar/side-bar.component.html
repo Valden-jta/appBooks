@@ -1,14 +1,14 @@
 
-<aside class="d-flex flex-column justify-content-start align-items-center p-3">
+<aside class="d-flex flex-column justify-content-start align-items-center d-none d-md-block m-0">
     <div class="row text-center py-4">
-        <div class="aside__img-container" [style.--photo]="'url(' + user.photo + ')'"></div>
+        <div class="aside__img-container" [style.--photo]="'url(' + user?.photo + ')'"></div>
         <div class=" aside__user-data-text">
             <p id="user" class="aside__user-data-text">{{nombreCompleto}}</p>
-            <p class="aside__user-data-text --subtext">{{ user.email }}</p>
+            <p class="aside__user-data-text --subtext">{{ user?.email }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="d-flex flex-nowrap justify-content-center align-items-center my-1">
+        <div class="d-flex flex-nowrap justify-content-center align-items-center my-1 ">
             <div class="col-4 separator mx-3"></div>
             <i class="fa-solid fa-user-gear fa-xl"></i>
             <div class="col-4 separator mx-3"></div>

@@ -10,13 +10,15 @@ import { ApiAnswer } from '../models/api-answer';
 })
 export class UserService implements OnInit {
   private url = 'http://localhost:3000';
-  // public logged: boolean = false;
-  public serviceUser: User | null;
-  public  logged$ = new BehaviorSubject<boolean>(false)
+  private userSubject = new BehaviorSubject<User | null>(null);
+  public user$ = this.userSubject.asObservable();
+
+  public logged: boolean = false;
+  public logged$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
-    this.serviceUser = null;
-    // this.serviceUser = new User (5,"Arturo","Campos","arturo.campos@email.com","https://images.pexels.com/photos/15779915/pexels-photo-15779915/free-photo-of-a-young-man-with-curly-hair-in-front-of-a-blue-light.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500","arturoPassword_01")
+
+  
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -27,9 +29,13 @@ export class UserService implements OnInit {
     return this.http.post<ApiAnswer>(`${this.url}/login`, user);
   }
 
+  setUser(user: User | null) {
+    this.userSubject.next(user);
+  }
+
   onLogin(value: boolean) {
-  this.logged$.next(value);
-}
+    this.logged$.next(value);
+  }
   // REGISTER
   register(newUser: User): Observable<ApiAnswer> {
     return this.http.post<ApiAnswer>(`${this.url}/register`, newUser);
@@ -39,7 +45,5 @@ export class UserService implements OnInit {
     return this.http.put<ApiAnswer>(`${this.url}/usuarios`, editedObject);
   }
 
-
-  ngOninit(): void {
-  }
+  ngOninit(): void {}
 }

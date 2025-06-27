@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/user.service';
 import { ApiAnswer } from '../../models/api-answer';
 import { User } from '../../models/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-profile',
@@ -13,6 +14,7 @@ import { User } from '../../models/user';
 })
 export class FormProfileComponent implements OnInit {
   @Output() userChanges = new EventEmitter<User>();
+  public user$: Observable<User>;
   public user: User;
   public editedUser: User;
   public passwordPattern;
@@ -25,9 +27,8 @@ export class FormProfileComponent implements OnInit {
   public confirmPassword: string;
 
   constructor(private userService: UserService, private toastr: ToastrService) {
-    this.user = this.userService.serviceUser;
     this.passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
-    this.editedUser = new User(this.user.id_user, '', '', '', '', '');
+    this.user$ = this.userService.user$;
     this.newName = '';
     this.newLast_name = '';
     this.newEmail = '';
@@ -38,7 +39,17 @@ export class FormProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.user);
+    this.user$.subscribe((user) => {
+      if (user) {
+
+        this.user$.subscribe((user) => {
+          if (user) {
+            this.user = user;
+            this.editedUser = new User(this.user.id_user, '', '', '', '', '');
+          }
+        });
+      }
+    });
   }
 
   private editUser(user, editedUser): any {
@@ -54,9 +65,9 @@ export class FormProfileComponent implements OnInit {
       confirmPassword: this.confirmPassword,
     };
   }
-  public changes(user):void {
+  public changes(user): void {
     this.userChanges.emit(user);
-    console.log("mandando datos a profile");
+    console.log('mandando datos a profile');
     console.log(user);
   }
 
@@ -73,14 +84,14 @@ export class FormProfileComponent implements OnInit {
     console.log(editedObject);
     this.userService.edit(editedObject).subscribe(
       (res: ApiAnswer<User>) => {
-        if  (res.data) {
+        if (res.data) {
           this.confirmPassword = '';
-          this.userService.serviceUser = res.data;
-          this.changes(this.userService.serviceUser);
+          this.userService.setUser(res.data);
+          this.changes(res.data);
         } else {
           this.confirmPassword = '';
-          this.userService.serviceUser = { ...this.editedUser };
-          this.changes(this.userService.serviceUser);
+          this.userService.setUser({ ...this.editedUser });
+          this.changes(this.editedUser);
         }
         this.toastr.success(res?.message || 'Usuario actualizado', '', {
           timeOut: 2000,

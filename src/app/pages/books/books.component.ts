@@ -5,6 +5,7 @@ import { Book } from '../../models/book';
 import { User } from '../../models/user';
 import { ApiAnswer } from '../../models/api-answer';
 import { PutDeleteResult } from 'src/app/models/interface-results';
+import { Observable } from 'rxjs';
 
 import { BookService } from 'src/app/shared/book.service';
 import { UserService } from 'src/app/shared/user.service';
@@ -16,9 +17,9 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class BooksComponent implements OnInit {
   public user: User;
+  public user$: Observable<User>;
   public selectedBook: Book | null;
   public bookList: Book[];
-  
   public formBook!: FormGroup;
   public types: String[] = ['Tapa Blanda', 'Tapa Dura'];
 
@@ -28,7 +29,7 @@ export class BooksComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService
   ) {
-    this.user = this.userService.serviceUser;
+    this.user$ = this.userService.user$;
     this.bookList = [];
     this.bookService.books = [];
     this.selectedBook = null;
@@ -36,6 +37,12 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user$ = this.userService.user$;
+    this.user$.subscribe((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
     console.log('Usuario');
     console.log(this.user);
     this.reset();
@@ -74,9 +81,17 @@ export class BooksComponent implements OnInit {
   // * Actualizar libro (viene del componente)
   selectBook(book: Book) {
     this.selectedBook = book;
+    this.formBook.patchValue({
+      title: book.title,
+      author: book.author,
+      photo: book.photo,
+      type: book.type,
+      price: book.price,
+    });
   }
 
   updateBook(book: Book) {
+    console.log('updateBook llamado', book);
     console.log('selectedBook: ', this.selectedBook);
     this.bookService.edit(book).subscribe(
       (res: ApiAnswer<PutDeleteResult>) => {
@@ -100,15 +115,17 @@ export class BooksComponent implements OnInit {
   //  constructor del formulario
   private buildForm() {
     this.formBook = this.formBuilder.group({
-      title: ['', ''],
-      author: ['', ''],
-      photo: ['', ''],
-      type: ['', ''],
-      price: ['', ''],
+      title: [''],
+      author: [''],
+      photo: [''],
+      type: [''],
+      price: [''],
     });
   }
 
   public onSubmit() {
+    console.log('Submit lanzado', this.formBook.valid, this.formBook.value);
+    console.log('Selected Book',this.selectedBook);
     if (!this.selectedBook) return;
     let id_book = this.selectedBook.id_book;
     let id_user = this.user.id_user;
@@ -129,7 +146,6 @@ export class BooksComponent implements OnInit {
     );
     this.updateBook(updatedBook);
   }
-
 
   reset(): void {
     this.bookService.getAll(this.user.id_user).subscribe(

@@ -1,26 +1,6 @@
-
-
-.profile__wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  gap: 10px;
-}
-
-.profile__data,
 .profile__edit {
-  padding: 10px 20px;
-  width: 450px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-
-.profile__edit {
-  width: 600px;
+  width: 100%;
+  max-width: 37em
 }
 
 .profile__picture-wrapper {

@@ -10,6 +10,7 @@ import { ApiAnswer } from 'src/app/models/api-answer';
 import { BookService } from 'src/app/shared/book.service';
 import { UserService } from 'src/app/shared/user.service';
 import { PostResult } from 'src/app/models/interface-results';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-book',
@@ -18,6 +19,7 @@ import { PostResult } from 'src/app/models/interface-results';
 })
 export class AddBookComponent implements OnInit {
   public user: User;
+  public user$: Observable<User>;
   public books: Book[] = [];
   public book!: Book;
   public addedBook!: Book;
@@ -47,7 +49,12 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.books = this.bookService.books;
-    this.user = this.userService.serviceUser;
+     this.user$ = this.userService.user$;
+  this.user$.subscribe(user => {
+    if (user) {
+      this.user = user;
+    }
+  });
     console.log('lista importada correctamente');
     console.log(this.books);
     console.log('Usuario');

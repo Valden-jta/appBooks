@@ -1,13 +1,20 @@
 aside {
   background: var(--black);
   color: var(--white);
-  height: 100%;
-  width: 18.75em;
+  height:100%;
+   min-height: 100vh;
+  position:fixed;
+  top:0;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+
 }
 
 .aside__list-container {
   background-color: #3c3c3c;
-  width: 18.75em;
+  width: 100%;
+  margin: 0;
 }
 
 .aside__list-item {
@@ -55,17 +62,9 @@ aside {
   border: none;
   border-bottom: 1px solid var(--white);
   margin: 1.5em auto;
-  width: 60%;
+  width: 25%;
 }
 
 .coming-feature {
   opacity: 0.7;
-}
-
-@media (max-width: 850px) {
-  aside,
-  .side-bar, /* Usa la clase real de tu sidebar si es distinta */
-  .--custom {
-    display: none !important;
-  }
 }

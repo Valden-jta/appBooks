@@ -1,19 +1,8 @@
-header {
-  margin: 0 12em;
+nav {
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
-.myNav {
-  background-color: var(--white);
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2em;
-  position: sticky;
-  offset: 0em;
-}
-
-a.myNav-link {
+.nav-link {
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -22,7 +11,7 @@ a.myNav-link {
   font-weight: 500;
 }
 
-a.myNav-link::after {
+.nav-item > .nav-link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -35,8 +24,8 @@ a.myNav-link::after {
   transform: translateX(-100%);
 }
 
-a.myNav-link:hover::after,
-a.myNav-link.active::after {
+.nav-item > .nav-link:hover::before,
+.nav-item > .nav-link.active::before {
   transform: translateX(0%);
 }
 
@@ -44,7 +33,17 @@ a.myNav-link.active::after {
   font-family: var(--text-font);
   font-weight: 500;
 }
+.dropdown-menu {
+  width: 180px !important;
+}
+.dropdown-menu > .nav-link {
+  padding: 0.5em 1em;
+  transition: font-weight 0.3s ease-out;
+}
 
+.dropdown-menu > .nav-link:hover {
+  font-weight: 700;
+}
 
 .myNav-brand {
   display: flex;
@@ -53,14 +52,46 @@ a.myNav-link.active::after {
   align-items: flex-start;
 }
 .myNav-brand__img {
-  width: 40%;
   height: 40%;
-  min-width: 40%;
-  min-height: 40%;
+  width: 40%;
   object-fit: cover;
   background-color: var(--white);
 }
 
 .myNav-link__icon {
   position: relative;
+}
+
+/* --------- Responsive --------- */
+@media (width > 851px) {
+  .loggedMenu > .nav-item { 
+    display: none!important;
+  }
+.loggedMenu > .nav-item:last-child {
+  display:block!important;
+}
+
+}
+@media (max-width: 850px) {
+  .navbar-nav,
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+  }
+  .dropdown,
+  .dropdown-menu {
+    text-align: center !important;
+  }
+  .dropdown-menu {
+    border: none;
+    background-color: var(--background);
+    width: 100% !important;
+    min-width: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
 }

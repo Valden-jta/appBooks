@@ -15,7 +15,7 @@
   --white: rgb(255, 255, 255);
   --yellow: rgb(255, 224, 27);
   --blue: rgb(13, 39, 66);
-   --blue-rgb: 13, 39, 66;
+  --blue-rgb: 13, 39, 66;
   --background: rgb(245, 245, 245);
   --text-color: rgb(21, 25, 34);
   --text-font: "Roboto", sans-serif;
@@ -27,8 +27,16 @@ html {
   color: var(--text-color);
   background-color: var(--secondary);
 }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color:var(--white)
+}
+
 main {
-  min-height: 75vh;
+  min-height: 81vh;
 }
 
 h1,
@@ -47,12 +55,9 @@ p {
 }
 
 .generic__img {
-  width: 60%;
-  height: auto;
   display: block;
   object-fit: contain;
   object-position: center;
-  margin: 1em auto;
 }
 
 /* ? --------------- TEXTO --------------- */
@@ -60,19 +65,20 @@ p {
 .--highlight {
   font-size: 2.5rem;
   font-weight: 800;
-  position:relative;
+  position: relative;
   z-index: 99;
 }
 
 .--highlight::after {
-  z-index:9;
-  content: '';
-  position:absolute;
-  left: 0; right: 0; bottom: -.250em;
-  height: .25em;
+  z-index: 9;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25em;
+  height: 0.25em;
   background: var(--yellow);
 }
-
 
 /* ? --------------- FORMULARIOS --------------- */
 
@@ -83,7 +89,7 @@ p {
   justify-content: flex-start;
   align-items: center;
   background-color: var(--white);
-  padding: 2em
+  padding: 2em;
 }
 
 .form {
@@ -162,7 +168,9 @@ a.form__subtitle {
   max-width: 20vw;
 }
 
-.form__element > input, .form__element--login > input, .form__element > select  {
+.form__element > input,
+.form__element--login > input,
+.form__element > select {
   width: 100%;
   box-sizing: border-box;
   color: var(--black);
@@ -170,25 +178,27 @@ a.form__subtitle {
   font-family: var(--text-font);
   font-weight: 500;
   line-height: 1.5;
-  padding-left:2em !important;
+  padding-left: 2em !important;
   border: 1px solid var(--black);
   border-radius: 2em;
 }
 
-.form__element > button, .form__element--login > button {
+.form__element > button,
+.form__element--login > button {
   position: absolute;
   width: 2.5em;
   border: none;
   background: none;
   position: absolute;
   right: 3em;
-  top: 1.5em; 
+  top: 1.5em;
   transform: translateY(-25%);
   z-index: 2;
   padding: 0;
 }
 
-.form__element > label, .form__element--login > label {
+.form__element > label,
+.form__element--login > label {
   width: 60%;
   box-sizing: border-box;
   font-family: var(--text-font);
@@ -217,10 +227,9 @@ a.form__subtitle {
   overflow: hidden;
   overflow-wrap: break-word;
   transition: max-height 0.3s ease, opacity 0.3s ease;
-
 }
 .form__element.invalid .invalid-feedback {
-  max-height: 3em; 
+  max-height: 3em;
 }
 
 @keyframes pulse {
@@ -327,8 +336,6 @@ a.form__subtitle {
 .cta:hover .cta__icon {
   transform: rotate(360deg);
 }
-
-
 
 /* ? --------------- blob --------------- */
 
