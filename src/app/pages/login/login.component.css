@@ -1,12 +1,44 @@
-.login {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background);
-    height: 75vh;
+.bg {
+  position: relative;
+  overflow-x: hidden;
 }
 
-.login__form {
-    min-width: 20vw;
-    max-width: 20vw;
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/img/login.jpg");
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-position: right 5em bottom 3;
+  opacity: 0.3; 
+  z-index: 0;
+  pointer-events: none;
+}
+.bg::after {
+    content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/img/abstract-blob-1.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: left -30em center;
+  opacity: 0.3; 
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* *Responsive */
+
+/* Moviles */
+@media (width < 640px) {
+  .bg::before, .bg::after {
+    display: none;
+  }
 }

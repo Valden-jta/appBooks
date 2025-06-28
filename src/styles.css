@@ -3,6 +3,7 @@
 /*? limpiador */
 
 * {
+
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -11,33 +12,65 @@
 /*? Global*/
 
 :root {
-  --black: rgb(50, 50, 49);
+  /* colores */
+  --black: #323231;
   --white: rgb(255, 255, 255);
   --yellow: rgb(255, 224, 27);
   --blue: rgb(13, 39, 66);
   --blue-rgb: 13, 39, 66;
   --background: rgb(245, 245, 245);
   --text-color: rgb(21, 25, 34);
+  /* fuentes */
   --text-font: "Roboto", sans-serif;
   --title-font: "Garamond", system-ui;
+  /* medidas */
+  --header-height: 8vh;
+  --footer-height: 16vh;
+  --main-height: 76vh;
+}
+
+body {
+  height: 100%;
 }
 
 html {
   font-family: var(--text-font);
   color: var(--text-color);
-  background-color: var(--secondary);
 }
 
+.app-wrapper {
+  min-height: 100vh;
+}
+.auto-fit {
+  min-height: var(--main-height);
+  overflow-y: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  padding: 0;
+  margin: 0;
+}
+
+.--full-height {
+  height: var(--main-height);
+}
+
+
 header {
+  height: var(--header-height);
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color:var(--white)
+  background-color:var(--white);
 }
 
-main {
-  min-height: 81vh;
+footer {
+  min-height: var(--footer-height);
 }
+
 
 h1,
 h2,
@@ -58,6 +91,10 @@ p {
   display: block;
   object-fit: contain;
   object-position: center;
+}
+
+.--bg--color {
+  background-color: var(--background);
 }
 
 /* ? --------------- TEXTO --------------- */
@@ -83,25 +120,29 @@ p {
 /* ? --------------- FORMULARIOS --------------- */
 
 .form__container {
+  width: 100%;
   border-radius: 15px;
+  border: 2px solid var(--black);
+  box-shadow: 1em 1em 0 0 var(--yellow);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: var(--white);
   padding: 2em;
+  margin: 1em;
+  z-index: 10000
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 50vw;
-  min-width: 100%;
   width: 100%;
   padding: 0.125em;
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
 }
 
 .form__title {
@@ -164,12 +205,7 @@ a.form__subtitle {
   position: relative;
 }
 
-.form__element--login {
-  max-width: 20vw;
-}
-
 .form__element > input,
-.form__element--login > input,
 .form__element > select {
   width: 100%;
   box-sizing: border-box;
@@ -183,8 +219,7 @@ a.form__subtitle {
   border-radius: 2em;
 }
 
-.form__element > button,
-.form__element--login > button {
+.form__element > button {
   position: absolute;
   width: 2.5em;
   border: none;
@@ -197,8 +232,7 @@ a.form__subtitle {
   padding: 0;
 }
 
-.form__element > label,
-.form__element--login > label {
+.form__element > label {
   width: 60%;
   box-sizing: border-box;
   font-family: var(--text-font);
@@ -350,18 +384,19 @@ a.form__subtitle {
   box-shadow: 0 5px 5px 5px rgba(13, 110, 253, 0.2);
   transition: all 1s ease-in-out;
   opacity: 0.5;
+  position: absolute;
 }
 
 .blob.--yellow {
   background-color: var(--yellow);
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  position: relative;
+  position: absolute;
   left: 25em;
 }
-.blob.--blue {
-  background-color: var(--blue);
+.blob.--black {
+  background-color: var(--black);
   border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  position: relative;
+  position: absolute;
 }
 
 /* @keyframes animate1 {
@@ -376,16 +411,13 @@ a.form__subtitle {
 
 /* *Responsive */
 /* Tablets */
-@media (max-width: 850px) {
-  main {
-    padding: 0 50px;
-  }
-}
+
 
 /* Moviles */
-@media (max-width: 640px) {
-  main {
-    padding: 0 0.625em;
-    height: auto;
+@media (width < 640px) {
+ .form__container {
+    box-shadow: none;
+    margin:0 0;
+    padding: .525em;
   }
 }

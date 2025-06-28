@@ -1,10 +1,10 @@
-<div class="form__container py-5">
+<div class="form__container">
   <form class="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
     <h2 class="form__title">Regístrate</h2>
     <p class="form__subtitle">Consigue acceso completo a la app myBooks</p>
     <div class="row">
       <div class="col-md-6 form__element form-floating">
-        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre completo" [ngClass]="{
+        <input type="text" class="form-control  mb-2" formControlName="nombre" placeholder="Nombre completo" [ngClass]="{
             'is-invalid':
               (formRegister.get('nombre')?.dirty ||
                 formRegister.get('nombre')?.touched) &&

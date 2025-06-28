@@ -1,5 +1,53 @@
-.register {
-    background-image: url('../../../assets/img/illustration1.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
+
+main {
+    height: calc(var(--main-height) + 3em);
+}
+
+.bg {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/img/register.jpg");
+  background-repeat: no-repeat;
+  background-size:30%;
+  background-position: left 3em center;
+  opacity: 0.3; 
+  z-index: 0;
+  pointer-events: none;
+}
+.bg::after {
+    content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/img/abstract-blob-1.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  transform: rotateX(180deg);
+  background-position: right -40em center;
+  opacity: 0.3; 
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+/* *Responsive */
+
+/* Moviles */
+@media (width < 640px) {
+
+  .bg::before, .bg::after {
+    display: none;
+  }
 }

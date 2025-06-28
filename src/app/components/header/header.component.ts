@@ -11,17 +11,24 @@ import { Observable } from 'rxjs';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  public user: User;
   public user$ = this.userService.user$;
   public logged$ = this.userService.logged$;
 
-  constructor(private userService: UserService,  private router: Router) {
-    
+  constructor(private userService: UserService, private router: Router) {
+    this.user$ = this.userService.user$;
   }
 
   ngOnInit(): void {
+    this.user$ = this.userService.user$;
+    this.user$.subscribe((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
   }
 
-  logOut(value:boolean) {
+  logOut(value: boolean) {
     this.userService.onLogin(false);
     this.router.navigate(['/home']);
   }

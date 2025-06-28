@@ -63,5 +63,7 @@ export class FormLoginComponent implements OnInit {
     
   }
 
-  onSubmit(loginForm: NgForm) {}
+  onSubmit(loginForm: NgForm) {
+    
+  }
 }

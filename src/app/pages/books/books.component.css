@@ -1,6 +1,6 @@
 /* * -------------- Barra lateral -------------- */
-main {
-  min-height: 80vh;
+.limit-xl-width {
+  max-width:19.092em!important;
 }
 
 
@@ -8,12 +8,14 @@ main {
 
 /* ? -------------- noBooks  */
 
+
 .noBooks {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin:2em 0;
 }
 
 .noBooks__img {
@@ -29,3 +31,10 @@ main {
 .noBooks__text {
   margin: .5em;
 }
+
+/* Responsive */
+/* @media (min-width: 1920px) {
+  .limit-xl-width {
+    max-width:19.092em!important;
+  }
+} */

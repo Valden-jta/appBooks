@@ -1,128 +1,125 @@
-<main class="container-fluid row m-0 px-0 bg-white">
-     <div class="col-md-2 m-0 p-0">
-    <app-side-bar></app-side-bar>
-  </div>
-  <div class="col-md-10 p-3">
-     <div class="row m-auto d-flex justify-content-evenly align-items-stretch">
-        <div class="col 12 col-md-6 col-sm-12">
-            <div class="form__container py-5">
-                <form class="form" [formGroup]="formBook" (ngSubmit)="onSubmit()">
-                    <h2 class="form__title">Añadir libro</h2>
-                    <p class="form__subtitle">Completa los datos para registrar un nuevo libro</p>
-
-                    <div class="form__element form-floating">
-                        <input type="text" class="form-control" formControlName="title" placeholder="Título" [ngClass]="{
-          'is-invalid':
-            (formBook.get('title')?.dirty ||
-              formBook.get('title')?.touched) &&
-            !formBook.get('title')?.valid
-        }" />
-                        <div *ngIf="!formBook.get('title')?.valid && (formBook.get('title')?.dirty || formBook.get('title')?.touched)"
-                            class="invalid-feedback">
-                            El título es obligatorio
-                        </div>
-                        <label for="title" class="form__element-label">Título</label>
-                    </div>
-
-                    <div class="form__element form-floating">
-                        <input type="text" class="form-control" formControlName="author" placeholder="Autor" [ngClass]="{
-          'is-invalid':
-            (formBook.get('author')?.dirty ||
-              formBook.get('author')?.touched) &&
-            !formBook.get('author')?.valid
-        }" />
-                        <div *ngIf="!formBook.get('author')?.valid && (formBook.get('author')?.dirty || formBook.get('author')?.touched)"
-                            class="invalid-feedback">
-                            El autor es obligatorio
-                        </div>
-                        <label for="author" class="form__element-label">Autor</label>
-                    </div>
-
-                    <div class="form__element form-floating">
-                        <input type="text" class="form-control" formControlName="photo" placeholder="URL de la imagen"
-                            [ngClass]="{
-          'is-invalid':
-            (formBook.get('photo')?.dirty ||
-              formBook.get('photo')?.touched) &&
-            !formBook.get('photo')?.valid
-        }" />
-                        <div *ngIf="!formBook.get('photo')?.valid && (formBook.get('photo')?.dirty || formBook.get('photo')?.touched)"
-                            class="invalid-feedback">
-                            La URL de la imagen es obligatoria
-                        </div>
-                        <label for="photo" class="form__element-label">URL de la imagen</label>
-                    </div>
-
-                    <div class="form__element form-floating">
-                        <select class="form-control form-select" formControlName="type" placeholder="Tipo de cubierta"
-                            [ngClass]="{
-          'is-invalid':
-            (formBook.get('type')?.dirty ||
-              formBook.get('type')?.touched) &&
-            !formBook.get('type')?.valid
-        }">
-                            <option value="" disabled selected>Selecciona un tipo</option>
-                            <option *ngFor="let typeName of types" [value]="typeName">{{ typeName }}</option>
-                        </select>
-                        <div *ngIf="!formBook.get('type')?.valid && (formBook.get('type')?.dirty || formBook.get('type')?.touched)"
-                            class="invalid-feedback">
-                            Debes seleccionar un tipo de cubierta
-                        </div>
-                        <label for="type" class="form__element-label">Tipo de cubierta</label>
-                    </div>
-
-                    <div class="form__element form-floating">
-                        <input type="number" class="form-control" formControlName="price" placeholder="Precio" min="0"
-                            [ngClass]="{
-          'is-invalid':
-            (formBook.get('price')?.dirty ||
-              formBook.get('price')?.touched) &&
-            !formBook.get('price')?.valid
-        }" />
-                        <div *ngIf="!formBook.get('price')?.valid && (formBook.get('price')?.dirty || formBook.get('price')?.touched)"
-                            class="invalid-feedback">
-                            El precio es obligatorio y debe ser mayor o igual a 0
-                        </div>
-                        <label for="price" class="form__element-label">Precio</label>
-                    </div>
-
-                    <div class="d-flex justify-content-end">
-                        <button class="form__button cta --bg-yellow " type="submit" [disabled]="formBook.invalid"
-                            [ngStyle]="{ opacity: !formBook.invalid ? 1 : 0.5 }">
-                            Añadir libro
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="col 12 col-md-6 col-sm-12 py-5 text-center">
-            <ng-container *ngIf="addedBook != null; else bgTemplate">
-                <div class="newBook-container">
-                    <h2 class="newBook-title mb-4">Este es tu nuevo libro</h2>
-                    <div class="row newBook">
-                        <div class="newBook_col col-12 col-md-6 col-sm-12">
-                            <img class="generic__img" [src]="addedBook.photo" [alt]="'Portada de ' + addedBook.title" />
-                        </div>
-                        <div class="newBook_col col-12 col-md-6 col-sm-12 text-start d-flex flex-column justify-content-around">
-                            <p class="fs-3 fw-bold">{{addedBook.title}} - <span class="fw-normal fs-5">{{addedBook.type}}</span></p>
-                            <p class="fw-bold fs-4">{{addedBook.author}}</p>
-                        
-                            <p class="fw-bold fs-2  jusitfy-s align-self-end"><span class="--highlight">{{addedBook.price}} €</span></p>
-                        </div>
-                    </div>
-                    <button class="cta" type="button" (click)="targetBook(this.addedBook.id_book)">
-                        Ir a libros
-                    </button>
-                </div>
-            </ng-container>
-            <ng-template #bgTemplate>
-                <img src="../../../assets/img/bookshelve.jpg" class="generic__img">
-                <h3 class="fs-2 fw-bold">Es hora de llenar la biblioteca</h3>
-                <p>  Añade tus libros y construye tu biblioteca personal para disfrutar de todas las funcionalidades de la app.</p>
-            </ng-template>
-        </div>
-    </div>
+<main>
+  <div class="container ">
+           <div class="row mx-auto my-3 d-flex justify-content-evenly align-items-stretch">
+              <div class="col-12 col-md-6 col-sm-12">
+                  <div class="form__container py-5">
+                      <form class="form" [formGroup]="formBook" (ngSubmit)="onSubmit()">
+                          <h2 class="form__title">Añadir libro</h2>
+                          <p class="form__subtitle">Completa los datos para registrar un nuevo libro</p>
+      
+                          <div class="form__element form-floating">
+                              <input type="text" class="form-control" formControlName="title" placeholder="Título" [ngClass]="{
+                'is-invalid':
+                  (formBook.get('title')?.dirty ||
+                    formBook.get('title')?.touched) &&
+                  !formBook.get('title')?.valid
+              }" />
+                              <div *ngIf="!formBook.get('title')?.valid && (formBook.get('title')?.dirty || formBook.get('title')?.touched)"
+                                  class="invalid-feedback">
+                                  El título es obligatorio
+                              </div>
+                              <label for="title" class="form__element-label">Título</label>
+                          </div>
+      
+                          <div class="form__element form-floating">
+                              <input type="text" class="form-control" formControlName="author" placeholder="Autor" [ngClass]="{
+                'is-invalid':
+                  (formBook.get('author')?.dirty ||
+                    formBook.get('author')?.touched) &&
+                  !formBook.get('author')?.valid
+              }" />
+                              <div *ngIf="!formBook.get('author')?.valid && (formBook.get('author')?.dirty || formBook.get('author')?.touched)"
+                                  class="invalid-feedback">
+                                  El autor es obligatorio
+                              </div>
+                              <label for="author" class="form__element-label">Autor</label>
+                          </div>
+      
+                          <div class="form__element form-floating">
+                              <input type="text" class="form-control" formControlName="photo" placeholder="URL de la imagen"
+                                  [ngClass]="{
+                'is-invalid':
+                  (formBook.get('photo')?.dirty ||
+                    formBook.get('photo')?.touched) &&
+                  !formBook.get('photo')?.valid
+              }" />
+                              <div *ngIf="!formBook.get('photo')?.valid && (formBook.get('photo')?.dirty || formBook.get('photo')?.touched)"
+                                  class="invalid-feedback">
+                                  La URL de la imagen es obligatoria
+                              </div>
+                              <label for="photo" class="form__element-label">URL de la imagen</label>
+                          </div>
+      
+                          <div class="form__element form-floating">
+                              <select class="form-control form-select" formControlName="type" placeholder="Tipo de cubierta"
+                                  [ngClass]="{
+                'is-invalid':
+                  (formBook.get('type')?.dirty ||
+                    formBook.get('type')?.touched) &&
+                  !formBook.get('type')?.valid
+              }">
+                                  <option value="" disabled selected>Selecciona un tipo</option>
+                                  <option *ngFor="let typeName of types" [value]="typeName">{{ typeName }}</option>
+                              </select>
+                              <div *ngIf="!formBook.get('type')?.valid && (formBook.get('type')?.dirty || formBook.get('type')?.touched)"
+                                  class="invalid-feedback">
+                                  Debes seleccionar un tipo de cubierta
+                              </div>
+                              <label for="type" class="form__element-label">Tipo de cubierta</label>
+                          </div>
+      
+                          <div class="form__element form-floating">
+                              <input type="number" class="form-control" formControlName="price" placeholder="Precio" min="0"
+                                  [ngClass]="{
+                'is-invalid':
+                  (formBook.get('price')?.dirty ||
+                    formBook.get('price')?.touched) &&
+                  !formBook.get('price')?.valid
+              }" />
+                              <div *ngIf="!formBook.get('price')?.valid && (formBook.get('price')?.dirty || formBook.get('price')?.touched)"
+                                  class="invalid-feedback">
+                                  El precio es obligatorio y debe ser mayor o igual a 0
+                              </div>
+                              <label for="price" class="form__element-label">Precio</label>
+                          </div>
+      
+                          <div class="d-flex justify-content-end">
+                              <button class="form__button cta --bg-yellow " type="submit" [disabled]="formBook.invalid"
+                                  [ngStyle]="{ opacity: !formBook.invalid ? 1 : 0.5 }">
+                                  Añadir libro
+                              </button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+      
+              <div class="col 12 col-md-6 col-sm-12 py-5 text-center">
+                  <ng-container *ngIf="addedBook != null; else bgTemplate">
+                      <div class="newBook-container">
+                          <h2 class="newBook-title mb-4">Este es tu nuevo libro</h2>
+                          <div class="row newBook">
+                              <div class="newBook_col col-12 col-md-6 col-sm-12">
+                                  <img class="generic__img" [src]="addedBook.photo" [alt]="'Portada de ' + addedBook.title" />
+                              </div>
+                              <div class="newBook_col col-12 col-md-6 col-sm-12 text-start d-flex flex-column justify-content-around">
+                                  <p class="fs-3 fw-bold">{{addedBook.title}} - <span class="fw-normal fs-5">{{addedBook.type}}</span></p>
+                                  <p class="fw-bold fs-4">{{addedBook.author}}</p>
+                              
+                                  <p class="fw-bold fs-2  jusitfy-s align-self-end"><span class="--highlight">{{addedBook.price}} €</span></p>
+                              </div>
+                          </div>
+                          <button class="cta" type="button" (click)="targetBook(this.addedBook.id_book)">
+                              Ir a libros
+                          </button>
+                      </div>
+                  </ng-container>
+                  <ng-template #bgTemplate>
+                      <img src="../../../assets/img/bookshelve.jpg" class="generic__img">
+                      <h3 class="fs-2 fw-bold">Es hora de llenar la biblioteca</h3>
+                      <p>  Añade tus libros y construye tu biblioteca personal para disfrutar de todas las funcionalidades de la app.</p>
+                  </ng-template>
+              </div>
+          </div>
   </div>
    
 </main>

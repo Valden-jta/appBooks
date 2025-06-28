@@ -11,14 +11,13 @@ import { ApiAnswer } from '../models/api-answer';
 export class UserService implements OnInit {
   private url = 'http://localhost:3000';
   private userSubject = new BehaviorSubject<User | null>(null);
-  public user$ = this.userSubject.asObservable();
-
   public logged: boolean = false;
+  
+  public user$ = this.userSubject.asObservable();
   public logged$ = new BehaviorSubject<boolean>(false);
-
+  
   constructor(private http: HttpClient) {
 
-  
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');

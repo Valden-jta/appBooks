@@ -24,8 +24,6 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { IdBookFormatPipe } from './pipes/id-book-format.pipe';
 import { AddBookComponent } from './pages/add-book/add-book.component';
 import { SingleBookComponent } from './pages/single-book/single-book.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
-
 
 @NgModule({
   declarations: [
@@ -44,7 +42,6 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     IdBookFormatPipe,
     AddBookComponent,
     SingleBookComponent,
-    SideBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,7 +18,7 @@ import { BookService } from 'src/app/shared/book.service';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit, OnChanges {
   public user: User;
@@ -18,6 +26,8 @@ export class BookListComponent implements OnInit, OnChanges {
   public filteredBooks: Book[];
   public minPrice: Number;
   public maxPrice: Number;
+  public cardsPerPage: Number;
+  public currentPage: Number;
   filters = {
     title: '',
     author: '',
@@ -31,14 +41,17 @@ export class BookListComponent implements OnInit, OnChanges {
   @Output() deleteBook = new EventEmitter<Book>();
   @Output() updateBook = new EventEmitter<Book>();
 
-  constructor(private bookService: BookService, 
-              private toastr: ToastrService,
-              private router: Router) {
+  constructor(
+    private bookService: BookService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     this.toggleView = false;
     this.filteredBooks = [];
     this.minPrice = 0;
     this.maxPrice = 100;
-
+    this.cardsPerPage = 10;
+    this.currentPage = 1;
   }
 
   ngOnInit(): void {
@@ -53,8 +66,7 @@ export class BookListComponent implements OnInit, OnChanges {
     }
   }
 
-
-   // * Acciones
+  // * Acciones
   delete(book: Book): void {
     this.deleteBook.emit(book);
   }
@@ -65,6 +77,17 @@ export class BookListComponent implements OnInit, OnChanges {
 
   showOne(book: Book): void {
     this.router.navigate(['/book', book.id_book]);
+  }
+
+  // * Paginacion
+  // Calcula el total de páginas
+  get totalPages(): number {
+    return Math.ceil(this.filteredBooks.length / Number(this.cardsPerPage));
+  }
+
+  // Cambia de página
+  setPage(page: number) {
+    this.currentPage = page;
   }
 
   // * Funciones filtrado
@@ -99,5 +122,4 @@ export class BookListComponent implements OnInit, OnChanges {
       this.maxPrice = 100;
     }
   }
-
 }

@@ -1,57 +1,59 @@
 <!-- Template driven -->
-<div class="form__container">
-    <h2 class="form__title">Log in</h2>
-    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-        <div class="row">
-            <div class="form__element--login form-floating">
-                <input class="form-control" #emailId="ngModel" type="email" name="email"
-                    placeholder="Tu email de registro" [(ngModel)]="user.email" [ngClass]="{
-            'is-invalid': (emailId.dirty || emailId.touched) && emailId.invalid
-          }" email required />
-                <div *ngIf="(emailId.dirty || emailId.touched) && emailId.invalid" class="invalid-feedback">
-                    <div *ngIf="emailId.errors?.['required']">
-                        El correo electrónico es necesario
+    <div class="form__container">
+        <form class="form " #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <h2 class="form__title">Log in</h2>
+            <div class="row">
+                <div class="form__element form-floating">
+                    <input class="form-control" #emailId="ngModel" type="email" name="email"
+                        placeholder="Tu email de registro" [(ngModel)]="user.email" [ngClass]="{
+                'is-invalid': (emailId.dirty || emailId.touched) && emailId.invalid
+              }" email required />
+                    <div *ngIf="(emailId.dirty || emailId.touched) && emailId.invalid" class="invalid-feedback">
+                        <div *ngIf="emailId.errors?.['required']">
+                            El correo electrónico es necesario
+                        </div>
+                        <div *ngIf="emailId.errors?.['email']">El mail no es válido</div>
                     </div>
-                    <div *ngIf="emailId.errors?.['email']">El mail no es válido</div>
+                    <label for="email" class="form__element-label">Email</label>
                 </div>
-                <label for="email" class="form__element-label">Email</label>
             </div>
-        </div>
-        <div class="row">
-            <div class="form__element--login form-floating">
-                    <input class="form-control" #passwordId="ngModel" [type]="showPassword ? 'text' : 'password'"
-                        name="password" placeholder="Tu contraseña" [(ngModel)]="user.password" [ngClass]="{
-              'is-invalid':
-                (passwordId.dirty || passwordId.touched) && passwordId.invalid
-            }" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" />
-                    <button type="button" (click)="showPassword = !showPassword">
-                        <ng-container *ngIf="showPassword; else showIcon">
-                            <i class="fa-solid fa-eye-slash"></i>
-                        </ng-container>
-                        <ng-template #showIcon>
-                            <i class="fa-solid fa-eye"></i>
-                        </ng-template>
-                    </button>
-                    <div *ngIf="
-              (passwordId.dirty || passwordId.touched) && passwordId.invalid
-            " class="invalid-feedback">
-                        <div *ngIf="passwordId.errors?.['required']">
-                            Debes introducir una contraseña
+            <div class="row">
+                <div class="form__element form-floating">
+                        <input class="form-control" #passwordId="ngModel" [type]="showPassword ? 'text' : 'password'"
+                            name="password" placeholder="Tu contraseña" [(ngModel)]="user.password" [ngClass]="{
+                  'is-invalid':
+                    (passwordId.dirty || passwordId.touched) && passwordId.invalid
+                }" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$" />
+                        <button type="button" (click)="showPassword = !showPassword">
+                            <ng-container *ngIf="showPassword; else showIcon">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </ng-container>
+                            <ng-template #showIcon>
+                                <i class="fa-solid fa-eye"></i>
+                            </ng-template>
+                        </button>
+                        <div *ngIf="
+                  (passwordId.dirty || passwordId.touched) && passwordId.invalid
+                " class="invalid-feedback">
+                            <div *ngIf="passwordId.errors?.['required']">
+                                Debes introducir una contraseña
+                            </div>
+                            <div *ngIf="passwordId.errors?.['pattern']">
+                                La contraseña debe tener al menos 8 caracteres, incluyendo
+                                números, mayúsculas, minúsculas y símbolos especiales
+                            </div>
                         </div>
-                        <div *ngIf="passwordId.errors?.['pattern']">
-                            La contraseña debe tener al menos 8 caracteres, incluyendo
-                            números, mayúsculas, minúsculas y símbolos especiales
-                        </div>
-                    </div>
-                    <label class="form__element-label">Contraseña</label>
+                        <label class="form__element-label">Contraseña</label>
+                </div>
             </div>
-        </div>
-        <div class="form-group --center">
-         <a class="form__subtitle pb-3" (click)="passwortdToast()"> ¿No recuerdas tu contraseña?</a>
-            <button class="cta" [disabled]="loginForm.invalid" [ngStyle]="{ opacity: !loginForm.invalid ? 1 : 0.5 }"
-                (click)="iniciarSesion(user.email, user.password)">
-                Submit
-            </button>
-        </div>
-    </form>
-</div>
+            <div class="form-group --center">
+             <a class="form__subtitle pb-3" (click)="passwortdToast()"> ¿No recuerdas tu contraseña?</a>
+                <button class="cta" type="submit"  [disabled]="loginForm.invalid" [ngStyle]="{ opacity: loginForm.valid ? 1 : 0.5 }"
+                    (click)="iniciarSesion(user.email, user.password)">
+                    Accede
+                </button>
+            </div>
+        </form>
+    </div>
+
+
