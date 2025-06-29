@@ -11,7 +11,7 @@ import { ApiAnswer } from '../models/api-answer';
 export class BookService implements OnInit {
 
   public books: Book[] | null;
-  private url = "http://localhost:3000/books"
+  private url = "https://api-books-blond.vercel.app/books"
 
   constructor(private http: HttpClient) { 
     this.books = null;
