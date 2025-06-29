@@ -9,7 +9,9 @@ import { UserService } from 'src/app/shared/user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private userService: UserService) {}
+
+  constructor(private userService: UserService) {
+  }
 
   public scrollToRegister() {
     const element = document.getElementById('register-banner');

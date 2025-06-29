@@ -1,411 +1,609 @@
-<main>
-  <section class="container pt-5">
-    <div class="row py-5">
-      <div class="col-md-6 text-end">
-        <h1 class="home__title">LLega MyBooks</h1>
-        <p class="home__text-content">
-          Nuestra web es una herramienta online pensada para ayudarte a
-          <span class="fw-bold">
-            organizar y gestionar tu colección de libros</span
-          >
-          de manera cómoda y eficiente.
-        </p>
-        <p class="home__text-content">
-          Con una interfaz intuitiva y funcionalidades avanzadas, podrás
-          registrar, clasificar y buscar tus libros en cualquier momento y desde
-          cualquier dispositivo.
-        </p>
-
-        <h4 class="home__subtitle p-3">
-          Que no te lo cuenten,
-          <span class="text-uppercase --highlight">¡leelo!</span>
-        </h4>
-        <button
-          class="cta --bg-yellow-hover"
-          (click)="scrollToRegister()"
-          type="button"
-          href="#register-banner"
-        >
-          Regístrate
-        </button>
-      </div>
-
-      <div class="col-md-6 d-none d-sm-block">
-        <img src="../../../assets/img/composition2.png" alt="" width="80%" />
-      </div>
-    </div>
-  </section>
-
-  <section class="container p-2 bg-dark rounded-3">
-    <div class="row d-flex justify-content-around align-items-lg-center">
-      <div class="col-12 col-md-6 col-sm-12">
-        <div class="row">
-          <div class="col-md-4 card">
-            <div class="card-body text-center rounded-2 shadow">
-              <h5 class="card-title">Plan base</h5>
-              <span class="badge rounded-pill --bg-yellow my-2">Gratuito</span>
-              <p class="card-text">
-                Pensado para particulares que quieran organizar su colección
-                doméstica
-              </p>
-              <hr />
-            </div>
-          </div>
-
-          <div class="card col-md-4">
-            <div class="card-body text-center rounded-2 shadow">
-              <h5 class="card-title">Librería</h5>
-
-              <p class="card-text">
-                La solución para establecimientos. Controla el inventario y
-                gestiona pedidos a tus proveedores .
-              </p>
-              <hr />
-              <span class="card-subtitle my-3 fs-3"> 9.99 €/mes</span>
-            </div>
-          </div>
-
-          <div class="card col-md-4">
-            <div class="card-body text-center rounded-2 shadow">
-              <h5 class="card-title">Editorial</h5>
-
-              <p class="card-text">
-                La herramienta de las pequeñas editoriales. Factura, organiza
-                pedidos y consulta estadísticas.
-              </p>
-              <hr />
-              <span class="card-subtitle my-3 fs-3"> 19.99 €/mes</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-sm-12 text-light">
-        <h2 class="home__subtitle">Una solución a medida</h2>
-        <p class="home__text-content w-100">
-          Esta plataforma está diseñada tanto para
-          <span class="fw-bold">particulares</span> que desean llevar el control
-          de su biblioteca personal, como para
-          <span class="fw-bold"
-            >negocios, librerías o pequeñas editoriales</span
-          >
-          que necesitan administrar su inventario de forma profesional. Descubre
-          cómo
-          <span class="fw-bold"
-            >nuestra solución puede adaptarse a tus necesidades</span
-          >
-          y facilitar la gestión de tu colección, sea cual sea su tamaño.
-        </p>
-        <div class="d-flex justify-content-around align-items-start px-0">
-          <ul class="px-0 align-content-start">
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Añade y modífica tus libros</span>
-              </div>
-            </li>
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Agrupa tus libros por colecciones.</span>
-              </div>
-            </li>
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Añade y modífica tus libros.</span>
-              </div>
-            </li>
-          </ul>
-          <ul class="px-0 align-content-start">
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Gestiona el inventario.</span>
-              </div>
-            </li>
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Gestiona pedidos a proveedores.</span>
-              </div>
-            </li>
-            <li class="pt-1 d-flex align-items-center">
-              <div class="check-list">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon--yes"
-                  width="17"
-                  height="13"
-                  viewBox="0 0 17 13"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
-                    fill="#000"
-                  ></path></svg
-                ><span>Simplifica la facturación.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonios container bg-light py-4">
-    <h4 class="mb-3 text-center">¿Qué opinan nuestros usuarios?</h4>
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <blockquote class="blockquote">
-          <p>"La mejor app para gestionar mi biblioteca personal."</p>
-          <footer class="blockquote-footer">Ana G.</footer>
-        </blockquote>
-      </div>
-      <div class="col-md-4">
-        <blockquote class="blockquote">
-          <p>"Fácil de usar y muy completa para librerías."</p>
-          <footer class="blockquote-footer">Librería Sol</footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq container py-4">
-    <h4 class="mb-3 text-center">Preguntas frecuentes</h4>
-    <div class="accordion" id="faqAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faq1">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse1"
-          >
-            ¿Cómo me registro?
-          </button>
-        </h2>
-        <div id="collapse1" class="accordion-collapse collapse show">
-          <div class="accordion-body">
-            Solo tienes que rellenar el formulario y confirmar tu correo
-            electrónico.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faq2">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse2"
-          >
-            ¿Puedo importar mi colección de libros?
-          </button>
-        </h2>
-        <div
-          id="collapse2"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Sí, puedes importar tu colección desde un archivo CSV o Excel en la
-            sección de configuración de tu cuenta.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faq3">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse3"
-          >
-            ¿La aplicación es gratuita?
-          </button>
-        </h2>
-        <div
-          id="collapse3"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Ofrecemos un plan gratuito para uso personal y planes de pago para
-            librerías y editoriales con funciones avanzadas.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faq4">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse4"
-          >
-            ¿Puedo acceder desde el móvil?
-          </button>
-        </h2>
-        <div
-          id="collapse4"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Sí, la plataforma es responsive y puedes acceder desde cualquier
-            dispositivo móvil o tablet.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faq5">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse5"
-          >
-            ¿Cómo contacto con soporte?
-          </button>
-        </h2>
-        <div
-          id="collapse5"
-          class="accordion-collapse collapse"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Puedes escribirnos a soporte@mybooks.com o usar el formulario de
-            contacto en la web.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container form__container py-5">
-    <form class="form" autocomplete="off">
-      <h2 class="form__title">Contacto</h2>
-      <p class="form__subtitle">
-        ¿Tienes dudas o sugerencias? Escríbenos y te responderemos lo antes
-        posible.
+<main class="container_fluid">
+  <section class="banner__wrapper row justify-content-center align-items-center">
+    <div class="banner col-12 col-md-12 col-lg-6 col-xl-4">
+      <h1 class="__title">LLega MyBooks</h1>
+      <p class="__text">
+        Nuestra web es una herramienta online pensada para ayudarte a
+        <span class="fw-bold">
+          organizar y gestionar tu colección de libros</span>
+        de manera cómoda y eficiente.
       </p>
-      <div class="row">
-        <div class="col-md-6 form__element form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="contactName"
-            placeholder="Nombre"
-            required
-          />
-          <label for="contactName" class="form__element-label">Nombre</label>
-        </div>
-        <div class="col-md-6 form__element form-floating">
-          <input
-            type="email"
-            class="form-control"
-            id="contactEmail"
-            placeholder="Correo electrónico"
-            required
-          />
-          <label for="contactEmail" class="form__element-label"
-            >Correo electrónico</label
-          >
-        </div>
-      </div>
-      <div class="row">
-        <div class="form__element form-floating">
-          <input
-            type="text"
-            class="form-control"
-            id="contactSubject"
-            placeholder="Asunto"
-            required
-          />
-          <label for="contactSubject" class="form__element-label">Asunto</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form__element form-floating">
-          <textarea
-            class="form-control"
-            id="contactMessage"
-            placeholder="Escribe tu mensaje aquí..."
-            style="height: 120px"
-            required
-          ></textarea>
-          <label for="contactMessage" class="form__element-label"
-            >Mensaje</label
-          >
-        </div>
-      </div>
-      <div class="--center">
-        <button class="form__button cta --bg-yellow" type="submit">
-          Enviar mensaje
-        </button>
-      </div>
-    </form>
+      <h4 class="__subtitle">
+        Que no te lo cuenten,
+        <span class="text-uppercase --highlight">¡leelo!</span>
+      </h4>
+      <button class="cta --bg-yellow-hover" type="button" routerLink="/register">
+        Regístrate
+      </button>
+
+    </div>
   </section>
+
+  <section class="--bg-black text-light p-5">
+    <div class="row d-flex justify-content-around align-items-lg-center">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-12 col-xl-4 col-xxl-6 text-center p-0">
+          <h2 class="__subtitle text-uppercase">Una solución a medida</h2>
+          <p class="__text --alt-text w-100">
+            Esta plataforma está diseñada tanto para
+            <span class="fw-bold">particulares</span> que desean llevar el control
+            de su biblioteca personal, como para
+            <span class="fw-bold">negocios, librerías o pequeñas editoriales</span>
+            que necesitan administrar su inventario de forma profesional. Descubre
+            cómo
+            <span class="fw-bold">nuestra solución puede adaptarse a tus necesidades</span>
+            y facilitar la gestión de tu colección, sea cual sea su tamaño.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-12 col-xl-4 col-xxl-6 p-0">
+        <div class="row justify-content-start d-none d-md-flex text-center mt-4">
+          <div class="col-md-4 col-lg-4">
+            <h3 class="--alt-title py-2 border-bottom border-secondary d-flex justify-content-start align-items-center">
+              <span class="check-list"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                  viewBox="0 0 16 16">
+                  <path fill="#000" d="M11 7c0 1.66-1.34 3-3 3S5 8.66 5 7s1.34-3 3-3s3 1.34 3 3" />
+                  <path fill="#000" fill-rule="evenodd"
+                    d="M16 8c0 4.42-3.58 8-8 8s-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8M4 13.75C4.16 13.484 5.71 11 7.99 11c2.27 0 3.83 2.49 3.99 2.75A6.98 6.98 0 0 0 14.99 8c0-3.87-3.13-7-7-7s-7 3.13-7 7c0 2.38 1.19 4.49 3.01 5.75"
+                    clip-rule="evenodd" />
+                </svg></span> Particulares
+            </h3>
+            <ul class="group-list d-flex flex-column justify-content-start align-items-start w-100 p-0">
+              <li class="d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Gestiona tu biblioteca.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Crea tus colecciones.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Exporta tus colecciones.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Crea comunidad.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-lg-4 list-group">
+            <h3 class="--alt-title py-2 border-bottom border-secondary d-flex justify-content-start align-items-center">
+              <span class="check-list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512">
+                  <path fill="#000"
+                    d="M64 480H48a32 32 0 0 1-32-32V112a32 32 0 0 1 32-32h16a32 32 0 0 1 32 32v336a32 32 0 0 1-32 32m176-304a32 32 0 0 0-32-32h-64a32 32 0 0 0-32 32v28a4 4 0 0 0 4 4h120a4 4 0 0 0 4-4ZM112 448a32 32 0 0 0 32 32h64a32 32 0 0 0 32-32v-30a2 2 0 0 0-2-2H114a2 2 0 0 0-2 2Z" />
+                  <rect width="128" height="144" x="112" y="240" fill="#000" rx="2" ry="2" />
+                  <path fill="#000"
+                    d="M320 480h-32a32 32 0 0 1-32-32V64a32 32 0 0 1 32-32h32a32 32 0 0 1 32 32v384a32 32 0 0 1-32 32m175.89-34.55l-32.23-340c-1.48-15.65-16.94-27-34.53-25.31l-31.85 3c-17.59 1.67-30.65 15.71-29.17 31.36l32.23 340c1.48 15.65 16.94 27 34.53 25.31l31.85-3c17.59-1.67 30.65-15.71 29.17-31.36" />
+                </svg></span> Librerías
+            </h3>
+            <ul class="d-flex flex-column justify-content-start align-items-start w-100 p-0">
+              <li class="d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="#000" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" />
+                  </svg><span>Todo lo anterior.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Controla el inventario.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Contacta con proveedores.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Dispara tus ventas online.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-lg-4 list-group">
+            <h3 class="--alt-title py-2 border-bottom border-secondary d-flex justify-content-start align-items-center">
+              <span class="check-list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 32 32">
+                  <path fill="#000"
+                    d="m16 3.906l-.375.156l-12 5L3 9.345V12h2v11H3v5h26v-5h-2V12h2V9.344l-.625-.28l-12-5.002zm0 2.188L25.375 10H6.625zM7 12h2v11H7zm4 0h2v11h-2zm4 0h2v11h-2zm4 0h2v11h-2zm4 0h2v11h-2zM5 25h22v1H5z" />
+                </svg>
+              </span> Editoriales
+            </h3>
+            <ul class="d-flex flex-column justify-content-start align-items-start w-100 p-0">
+              <li class="d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <path fill="#000" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" />
+                  </svg><span>Todo lo anterior.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Gestiona pedidos.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Administra tu catálogo.</span>
+                </div>
+              </li>
+              <li class="pt-2 d-flex align-items-center p-0 w-100">
+                <div class="check-list">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                    viewBox="0 0 17 13">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                      fill="#000"></path>
+                  </svg><span>Consulta estadísticas avanzadas.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- lista movil -->
+        <div class="col-12 d-block d-md-none px-0 mt-5">
+          <div class="accordion accordion-flush" id="featureAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed --alt-title --bg-black text-light" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                  aria-controls="flush-collapseOne">
+                  <span class="check-list"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                      viewBox="0 0 16 16">
+                      <path fill="#000" d="M11 7c0 1.66-1.34 3-3 3S5 8.66 5 7s1.34-3 3-3s3 1.34 3 3" />
+                      <path fill="#000" fill-rule="evenodd"
+                        d="M16 8c0 4.42-3.58 8-8 8s-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8M4 13.75C4.16 13.484 5.71 11 7.99 11c2.27 0 3.83 2.49 3.99 2.75A6.98 6.98 0 0 0 14.99 8c0-3.87-3.13-7-7-7s-7 3.13-7 7c0 2.38 1.19 4.49 3.01 5.75"
+                        clip-rule="evenodd" />
+                    </svg></span> Particulares
+                </button>
+              </h3>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body --bg-black text-light">
+                  <ul class="group-list d-flex flex-column justify-content-start align-items-start w-100 p-0 ">
+                    <li class="d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Gestiona tu biblioteca.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Crea tus colecciones.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Exporta tus colecciones.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Crea comunidad.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed --alt-title --bg-black text-light" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                  aria-controls="flush-collapseTwo">
+                  <span class="check-list">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512">
+                      <path fill="#000"
+                        d="M64 480H48a32 32 0 0 1-32-32V112a32 32 0 0 1 32-32h16a32 32 0 0 1 32 32v336a32 32 0 0 1-32 32m176-304a32 32 0 0 0-32-32h-64a32 32 0 0 0-32 32v28a4 4 0 0 0 4 4h120a4 4 0 0 0 4-4ZM112 448a32 32 0 0 0 32 32h64a32 32 0 0 0 32-32v-30a2 2 0 0 0-2-2H114a2 2 0 0 0-2 2Z" />
+                      <rect width="128" height="144" x="112" y="240" fill="#000" rx="2" ry="2" />
+                      <path fill="#000"
+                        d="M320 480h-32a32 32 0 0 1-32-32V64a32 32 0 0 1 32-32h32a32 32 0 0 1 32 32v384a32 32 0 0 1-32 32m175.89-34.55l-32.23-340c-1.48-15.65-16.94-27-34.53-25.31l-31.85 3c-17.59 1.67-30.65 15.71-29.17 31.36l32.23 340c1.48 15.65 16.94 27 34.53 25.31l31.85-3c17.59-1.67 30.65-15.71 29.17-31.36" />
+                    </svg></span> Librerías
+                </button>
+              </h3>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body --bg-black text-light">
+                  <ul class="group-list d-flex flex-column justify-content-start align-items-start w-100 p-0 ">
+                    <li class="d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                          <path fill="#000" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z" />
+                        </svg><span>Todo lo anterior.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Controla el inventario.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Contacta con proveedores.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Dispara tus ventas online.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-title">
+                <button class="accordion-button collapsed --alt-title --bg-black text-light" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                  aria-controls="flush-collapseThree">
+                  <span class="check-list">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 32 32">
+                      <path fill="#000"
+                        d="m16 3.906l-.375.156l-12 5L3 9.345V12h2v11H3v5h26v-5h-2V12h2V9.344l-.625-.28l-12-5.002zm0 2.188L25.375 10H6.625zM7 12h2v11H7zm4 0h2v11h-2zm4 0h2v11h-2zm4 0h2v11h-2zm4 0h2v11h-2zM5 25h22v1H5z" />
+                    </svg>
+                  </span> Editoriales
+                </button>
+              </h3>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body --bg-black text-light">
+                  <ul class="group-list d-flex flex-column justify-content-start align-items-start w-100 p-0 ">
+                    <li class="d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Gestiona tu biblioteca.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Crea tus colecciones.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Exporta tus colecciones.</span>
+                      </div>
+                    </li>
+                    <li class="pt-2 d-flex align-items-center p-0 w-100">
+                      <div class="check-list">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon--yes" width="17" height="13"
+                          viewBox="0 0 17 13">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7072 1.70712L6.00008 12.4142L0.792969 7.20712L2.20718 5.79291L6.00008 9.5858L15.293 0.292908L16.7072 1.70712Z"
+                            fill="#000"></path>
+                        </svg><span>Crea comunidad.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-12 col-xl-4 col-xxl-6 text-center">
+            <button class="cta --bg-yellow --center" type="button" routerLink="/register">Regístrate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container testimonios__wrapper my-4">
+    <div class=" row justify-content-end ">
+      <div class="testimonios col-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="row justify-content-start align-content-around">
+          <h3 class="mb-3 text-start __subtitle mb-5">¿Qué opinan nuestros usuarios?</h3>
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <figure>
+                <div class="stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                </div>
+                <blockquote class="blockquote">
+                  <p>"Muy intuitiva y práctica. Ahora tengo todos mis libros organizados y localizados."</p>
+                  <figcaption class="blockquote-footer">Carlos M.</figcaption>
+                </blockquote>
+              </figure>
+              <figure>
+                <div class="stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                </div>
+                <blockquote class="blockquote">
+                  <p>"Fácil de usar y muy completa para librerías."</p>
+                  <figcaption class="blockquote-footer">Librería Sol</figcaption>
+                </blockquote>
+              </figure>
+              <figure>
+                <div class="stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#ffe01b"
+                      d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z" />
+                  </svg>
+                </div>
+                <blockquote class="blockquote">
+                  <p>"Perfecta para editoriales pequeñas. La gestión de pedidos y catálogos es muy sencilla."</p>
+                  <figcaption class="blockquote-footer">Editorial Prisma</figcaption>
+                </blockquote>
+              </figure>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact__wrapper --bg-color p-1 p-md-5">
+    <div class="container">
+      <div class="row justify-content-center align-items-stretch">
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+          <div class="accordion " id="faqAccordion">
+            <h4 class="form__title py-3 text-center">Preguntas frecuentes</h4>
+            <div class="accordion-item">
+              <h2 id="faq1">
+                <button class="--alt-title bold accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                  ¿Cómo me registro?
+                </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                  Solo tienes que rellenar el formulario y confirmar tu correo
+                  electrónico.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="--alt-title" id="faq2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse2">
+                  ¿Puedo importar mi colección de libros?
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Sí, puedes importar tu colección desde un archivo CSV o Excel en la
+                  sección de configuración de tu cuenta.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse3">
+                  ¿La aplicación es gratuita?
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Ofrecemos un plan gratuito para uso personal y planes de pago para
+                  librerías y editoriales con funciones avanzadas.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse4">
+                  ¿Puedo acceder desde el móvil?
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Sí, la plataforma es responsive y puedes acceder desde cualquier
+                  dispositivo móvil o tablet.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faq5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse5">
+                  ¿Cómo contacto con soporte?
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Puedes escribirnos a soporte@mybooks.com o usar el formulario de
+                  contacto en la web.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+          <div class="form__container">
+            <form class="form" autocomplete="off">
+              <h2 class="form__title">Contacto</h2>
+              <p class="form__subtitle">
+                ¿Tienes dudas o sugerencias? Escríbenos y te responderemos lo antes
+                posible.
+              </p>
+              <div class="row">
+                <div class="col-md-6 form__element form-floating">
+                  <input type="text" class="form-control" id="contactName" placeholder="Nombre" required />
+                  <label for="contactName" class="form__element-label">Nombre</label>
+                </div>
+                <div class="col-md-6 form__element form-floating">
+                  <input type="email" class="form-control" id="contactEmail" placeholder="Correo electrónico" required />
+                  <label for="contactEmail" class="form__element-label">Correo electrónico</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form__element form-floating">
+                  <input type="text" class="form-control" id="contactSubject" placeholder="Asunto" required />
+                  <label for="contactSubject" class="form__element-label">Asunto</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form__element form-floating">
+                  <textarea class="form-control" id="contactMessage" placeholder="Escribe tu mensaje aquí..."
+                    style="height: 120px" required></textarea>
+                  <label for="contactMessage" class="form__element-label">Mensaje</label>
+                </div>
+              </div>
+              <div class="--center">
+                <button class="form__button cta --bg-yellow" type="submit">
+                  Enviar mensaje
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>

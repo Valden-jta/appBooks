@@ -1,30 +1,66 @@
-.border {
-    border: 1px solid var(--primary) !important;
+.__title {
+  font-size: 4rem;
+  line-height: 1.5;
+  font-weight: 800;
+  line-height: 1em;
 }
 
-
-
-.home__title {
-    font-size: 4em;
-    line-height: 1.5;
-    font-weight: 800;
+.__subtitle {
+  margin: 0.937rem auto;
+  font-size: 2.3rem;
+  font-weight: 800;
 }
 
-
-.home__subtitle {
-    margin:15px auto;
-    font-size: 2em;
-    font-weight: 800;
+.__text {
+  font-size: 1.5rem;
+}
+.--alt-title {
+  font-family: var(--text-font);
 }
 
+.--alt-text {
+  font-size: 1.2rem;
+}
 
+/* ------ Banner section ------*/
 
+.banner__wrapper {
+  height: 42em;
+  margin: 3em 1em;
+  position: relative;
+  z-index: 99;
+}
 
+.banner__wrapper::before {
+  content: "";
+  display: block;
+  height: 42em;
+  width: 100%;
+  background: no-repeat top left 5em / 25%
+    url("../../../assets/img/banner2.jpg");
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.banner__wrapper::after {
+  content: "";
+  display: block;
+  height: 42em;
+  width: 100%;
+  background: no-repeat bottom right 5em / 25%
+    url("../../../assets/img/banner.jpg");
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+/* ------ list section ------*/
 
 .check-list > svg {
   background-color: var(--yellow);
-  margin: .375rem;
-  padding: .125em;
+  margin: 0.375em;
+  padding: 0.125em;
   width: 1.3em;
   height: 1.3em;
   border-radius: 50px;
@@ -35,8 +71,115 @@
   padding-left: 0.375em;
 }
 
+/* ------ testimonios section ------*/
+.testimonios__wrapper {
+  background: no-repeat center left / 40%
+    url("../../../assets/img/testimony.jpg");
+}
 
+.blockquote-footer {
+  margin-bottom: 0.25rem !important;
+  height: 3em !important;
+}
 
+/* faq */
 
+.accordion {
+  border: 2px solid var(--black);
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 0 0.25em 1em rgba(50, 50, 49, 0.05);
+  margin: 2em 0;
+  padding: 2em;
+  margin: 1em;
+}
 
+.accordion-item {
+  border-radius: 1em;
+  margin-bottom: 1em;
+  background: var(--white);
+  overflow: hidden;
+  border: none;
+}
 
+.accordion-button {
+  font-family: var(--text-font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 2em;
+  padding: 1em 1.5em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--yellow);
+  color: var(--black);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 224, 27, 0.25);
+}
+
+.accordion-body {
+  background: var(--white);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-family: var(--text-font);
+  padding: 1.25em 2em;
+  /* border-top: 1px solid var(--yellow); */
+}
+
+.--alt-title.accordion-button {
+  font-family: var(--text-font);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--black);
+}
+
+/* ************ RESPONSIVE ************ */
+
+/* Pantallas grandes */
+@media (min-width: 2000px) {
+  .banner__wrapper::before {
+    background-position: top left 12em;
+  }
+
+  .banner__wrapper::after {
+    background-position: bottom right 12em;
+  }
+}
+
+/* Desktop */
+@media (max-width: 992px) {
+  /* md/lg */
+}
+
+/* Tablets */
+@media (max-width: 769px) {
+  .banner__wrapper,
+  .banner__wrapper::before,
+  .banner__wrapper::after {
+    background: none;
+    height: 31.75em;
+  }
+  .testimonios__wrapper {
+    background: none;
+  }
+
+  .check-list > span {
+    font-size: 0.75rem !important;
+    font-weight: 500;
+  }
+}
+
+/* Moviles */
+
+@media (max-width: 576px) {
+  /* xs */
+}
