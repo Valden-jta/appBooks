@@ -86,7 +86,7 @@
 
 .accordion {
   border: 2px solid var(--black);
-  border-radius: 15px;
+  border-radius: 2em;
   background: var(--white);
   box-shadow: 0 0.25em 1em rgba(50, 50, 49, 0.05);
   margin: 2em 0;
@@ -95,25 +95,30 @@
 }
 
 .accordion-item {
-  border-radius: 1em;
+  border-radius: 2em;
   margin-bottom: 1em;
   background: var(--white);
   overflow: hidden;
   border: none;
 }
 
-.accordion-button {
+.accordion-header {
+    border-radius: 2em!important;
+}
+
+.accordion-button, .accordion-button:last-child {
   font-family: var(--text-font);
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--black);
   background: var(--white);
   border: 1px solid var(--black);
-  border-radius: 2em;
+  border-radius: 2em!important;
   padding: 1em 1.5em;
   transition: background 0.2s, color 0.2s;
   box-shadow: none;
 }
+
 
 .accordion-button:not(.collapsed) {
   background-color: var(--yellow);

@@ -209,15 +209,16 @@ a.form__subtitle {
 
 .form__element {
   width: 100%;
-  position: relative;
+  /* position: relative; */
 }
 
 .form__element > input,
-.form__element > select {
+.form__element > select,
+.form_element > textarea {
   width: 100%;
   box-sizing: border-box;
   color: var(--black);
-  background: var(--white);
+  /* background: var(--white); */
   font-family: var(--text-font);
   font-weight: 500;
   line-height: 1.5;
@@ -246,7 +247,7 @@ a.form__subtitle {
   color: var(--text-color);
   font-size: 16px;
   font-weight: 400;
-  background: inherit !important;
+  background: transparent !important;
   margin-left: 2em !important;
 }
 
@@ -429,5 +430,16 @@ a.form__subtitle {
     box-shadow: none;
     margin:0 0;
     padding: .525em;
+  }
+
+  .form__element {
+    margin-top: 1em!important;
+    padding:0;
+    border: 1px solid yellow
+  }
+
+  input.form-control {
+    padding: 2.5em 1em!important;
+
   }
 }
