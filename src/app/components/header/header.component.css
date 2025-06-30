@@ -125,7 +125,7 @@ aside {
   background-image: var(--photo);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
 }
 
 .aside__user-data-text {
