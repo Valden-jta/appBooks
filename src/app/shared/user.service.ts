@@ -17,8 +17,9 @@ export class UserService implements OnInit {
   public logged$ = new BehaviorSubject<boolean>(false);
   
   constructor(private http: HttpClient) {
+}
 
-  }
+
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }

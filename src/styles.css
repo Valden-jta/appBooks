@@ -435,7 +435,6 @@ a.form__subtitle {
   .form__element {
     margin-top: 1em!important;
     padding:0;
-    border: 1px solid yellow
   }
 
   input.form-control {

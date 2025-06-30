@@ -264,7 +264,7 @@ span.filter__wrapper {
 /* ================== Responsive ================ */
 
 /* version mas pequeña de la tarjeta para el movil */
-@media (width < 768px) {
+@media (max-width: 768px) {
   .myCard__container {
   grid-template-columns: repeat(3, minmax(13.75em, 1fr));
   }
