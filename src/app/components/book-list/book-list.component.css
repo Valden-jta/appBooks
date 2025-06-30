@@ -279,10 +279,10 @@ span.filter__wrapper {
 }
 
 /* movil: 2 columnas */
-@media (max-width: 375px) {
+@media (max-width: 576px) {
   .myCard__container {
    grid-template-columns: repeat(2, minmax(9.25em, 1fr));
-    gap: 1.5em 0.5em;
+  gap: 1.5em 0.5em;
   }
 
   .--title {
